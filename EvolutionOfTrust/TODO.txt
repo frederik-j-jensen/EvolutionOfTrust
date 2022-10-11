@@ -1,20 +1,7 @@
-﻿GOALS:
-1. Replicate model from "Evolution of Trust"
-2. Explore the question below
-
-
-QUESTION TO ANSWER:
-
-Can I reproduce that having a biased group is a feasible strategy in some scenarios?
+﻿BACKLOG:
 
 
 
 
-BACKLOG:
-
-
-Issue: When replicating winners and removing loosers, if there are more with the top score than needs to be removed/replicated, the order of the population becomes important. Consider to shuffle/randomize.
-
-Upload to GitHub
-
-
+ISSUES: 
+When replicating winners and removing loosers, if there are more with the top score than needs to be removed/replicated, the order of the population becomes important. Consider to shuffle/randomize.
