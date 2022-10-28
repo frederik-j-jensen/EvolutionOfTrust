@@ -11,7 +11,6 @@ namespace GameOfTrust.View
             Universe = universe;
         }
 
-
         public string Summary()
         {
             var s = new StringBuilder();

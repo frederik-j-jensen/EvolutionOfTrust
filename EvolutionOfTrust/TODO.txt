@@ -1,7 +1,21 @@
 ﻿BACKLOG:
 
+SCENARIO 1:
+Same as the scenario where CopyKitten is best but with one Biased group present
+
+SCENARIO 2:
+Multiple biased groups
+
+SCENARIO 3:
+AlwaysCheats within Biased.
+
 
 
 
 ISSUES: 
 When replicating winners and removing loosers, if there are more with the top score than needs to be removed/replicated, the order of the population becomes important. Consider to shuffle/randomize.
+
+
+
+
+

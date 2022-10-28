@@ -41,5 +41,9 @@ namespace GameOfTrust
             return View.Detailed();
         }
 
+        public string ViewParameters()
+        {
+            return View.ParametersView();
+        }
     }
 }

@@ -39,5 +39,16 @@ namespace GameOfTrust.View
             return s.ToString();
         }
 
+        public string ParametersView()
+        {
+            var s = new StringBuilder();
+
+            s.AppendLine($"InitialPopulationSize: {Parameters.InitialPopulationSize}");
+            s.AppendLine($"NumberOfTurns: {Parameters.NumberOfTurns}");
+            s.AppendLine($"NumberOfRounds: {Parameters.NumberOfRounds}");
+            s.AppendLine($"ProbabilityOfMistakePercent: {Parameters.ProbabilityOfMistakePercent}");
+
+            return s.ToString();
+        }
     }
 }
