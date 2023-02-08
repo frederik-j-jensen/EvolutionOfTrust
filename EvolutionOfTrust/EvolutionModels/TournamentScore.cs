@@ -2,7 +2,10 @@
 
 namespace GameOfTrust.EvolutionModels
 {
-    public class Model1 : EvolutionModel
+    /// <summary>
+    /// An evolution model where the actors total score in each tournament decides whether they get elimiated or get to reproduce.
+    /// </summary>
+    public class TournamentScore : EvolutionModel
     {
         public override IEnumerable<Actor> Loosers(Universe universe)
         {

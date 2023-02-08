@@ -2,6 +2,9 @@
 
 namespace GameOfTrust.EvolutionModels
 {
+    /// <summary>
+    /// An evolution model that replicate an s-curve.
+    /// </summary>
     public class SCurve : EvolutionModel
     {
         private const int TargetPopulation = 50;
@@ -10,6 +13,7 @@ namespace GameOfTrust.EvolutionModels
 
         public override IEnumerable<Actor> Winners(Universe universe)
         {
+            // TODO: What happens when population count > TargetPopulation?
             var expandCount = (int)(GrowthFactor * (1 - universe.Population.Count * 1.0 / TargetPopulation));
             return universe.Population.Top(expandCount);
         }

@@ -9,8 +9,8 @@ namespace GameOfTrust.Model
 
         public abstract IEnumerable<Actor> Winners(Universe universe);
 
-        public static EvolutionModel Steady() { return new Steady(); }
-        public static EvolutionModel Model1() { return new Model1(); }
+        public static EvolutionModel NCase() { return new NCase(); }
+        public static EvolutionModel TournamentScore() { return new TournamentScore(); }
         public static EvolutionModel SCurve() { return new SCurve(); }
 
     }

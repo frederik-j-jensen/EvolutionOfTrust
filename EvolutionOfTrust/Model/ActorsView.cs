@@ -9,6 +9,8 @@ namespace GameOfTrust.Model
 {
     public class ActorsView : IEnumerable<Actor>
     {
+        private static Random Random = new Random();
+
         private readonly Actors _Actors;
         public int Count { get { return _Actors.Count; } }
 
@@ -31,15 +33,33 @@ namespace GameOfTrust.Model
         {
             var list = new List<Actor>(_Actors);
             list.Sort((a1, a2) => a1.Score.CompareTo(a2.Score));
-            return list.Take(x);
+            var threshold = list[x-1].Score;
+            var candidates = list.Where(a => a.Score <= threshold).ToList();
+            Shuffle(candidates);
+            return candidates.Take(x);
         }
 
         public IEnumerable<Actor> Top(int x)
         {
             var list = new List<Actor>(_Actors);
-            list.Sort((a1, a2) => a1.Score.CompareTo(a2.Score));
-            return list.TakeLast(x);
+            list.Sort((a1, a2) => a2.Score.CompareTo(a1.Score));
+            var threshold = list[x - 1].Score;
+            var candidates = list.Where(a => a.Score >= threshold).ToList();
+            Shuffle(candidates);
+            return list.Take(x);
         }
 
+        public static void Shuffle<T>(List<T> list)
+        {
+            int n = list.Count;
+            while (n > 1)
+            {
+                n--;
+                int k = Random.Next(n + 1);
+                T value = list[k];
+                list[k] = list[n];
+                list[n] = value;
+            }
+        }
     }
 }

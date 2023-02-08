@@ -5,7 +5,7 @@ namespace GameOfTrust.Model
 {
     public class Universe
     {
-        private EvolutionModel EvolutionModel = EvolutionModel.Steady();
+        private EvolutionModel EvolutionModel = EvolutionModel.NCase();
 
         private Actors _Population = new Actors();
         public ActorsView Population { get { return new ActorsView(_Population); } }

@@ -1,5 +1,60 @@
 ﻿BACKLOG:
 
+1: Reproduce results from the original:
+---------------------------------------
+
+4. Repeated Tournament (CopyCat is best)
+
+Starting population: 
+5 CopyCat
+5 AlwaysCheat
+15 AlwaysCooperate
+
+
+5.1 Evolution of Distrust -- variable number of rounds (+/- 10)
+
+Starting population: 
+1 CopyCat
+1 AlwaysCheat
+23 AlwaysCooperate
+
+10 Rounds: CopyCat
+7 Rounds: CopyCat
+5 Rounds: AlwaysCheat
+
+
+5.2 Change the reward from +2/+2 to +1/+1
+
+Starting population: 
+1 CopyCat
+1 AlwaysCheat
+23 AlwaysCooperate
+
+AlwaysCheat wins
+
+
+6 Making Misteaks (Copykitten is best in a more mean population) 
+5% chance of mistake each round: Copykitten
+0%: CopyCat
+20%: AlwaysCheat
+50%: Balance with AlwaysCheat, CopyCat, Random
+
+Starting population: 
+3 Copykitten
+3 Simpleton
+3 Random
+3 CopyCat
+13 AlwaysCheat
+
+
+
+
+
+
+
+2: Investigate how introduction of a Biased actor change the dynamics:
+----------------------------------------------------------------------
+
 SCENARIO 1:
 Same as the scenario where CopyKitten is best but with one Biased group present
 
@@ -10,12 +65,4 @@ SCENARIO 3:
 AlwaysCheats within Biased.
 
 
-
-
-ISSUES: 
-When replicating winners and removing loosers, if there are more with the top score than needs to be removed/replicated, the order of the population becomes important. Consider to shuffle/randomize.
-
-
-
-
-
+* Pass parameters from the commandline
