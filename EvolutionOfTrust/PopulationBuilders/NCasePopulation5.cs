@@ -5,6 +5,9 @@ namespace EvolutionOfTrust.PopulationBuilders
 {
     /// <summary>
     /// The population from NCase EvolutionOfTrust step 5.
+    /// 1 CopyCat
+    /// 1 AlwaysCheat
+    /// 23 AlwaysCooperate
     /// </summary>
     public class NCasePopulation5 : PopulationBuilder
     {

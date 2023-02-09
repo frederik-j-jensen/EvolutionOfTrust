@@ -4,7 +4,10 @@ using EvolutionOfTrust.Model;
 namespace EvolutionOfTrust.PopulationBuilders
 {
     /// <summary>
-    /// The population from NCase EvolutionOfTrust step 4.
+    /// The population from NCase EvolutionOfTrust step 4:
+    /// 5 CopyCat
+    /// 5 AlwaysCheat
+    /// 15 AlwaysCooperate
     /// </summary>
     public class NCasePopulation4 : PopulationBuilder
     {

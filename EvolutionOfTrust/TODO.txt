@@ -5,39 +5,22 @@
 
 4. Repeated Tournament (CopyCat is best)
 
-Starting population: 
-5 CopyCat
-5 AlwaysCheat
-15 AlwaysCooperate
-
 
 5.1 Evolution of Distrust -- variable number of rounds (+/- 10)
-
-Starting population: 
-1 CopyCat
-1 AlwaysCheat
-23 AlwaysCooperate
 
 10 Rounds: CopyCat
 7 Rounds: CopyCat
 5 Rounds: AlwaysCheat
 
 
-5.2 Change the reward from +2/+2 to +1/+1
-
-Starting population: 
-1 CopyCat
-1 AlwaysCheat
-23 AlwaysCooperate
-
-AlwaysCheat wins
+5.2 Change the reward from +2/+2 to +1/+1 (AlwaysCheat wins)
 
 
 6 Making Misteaks (Copykitten is best in a more mean population) 
-5% chance of mistake each round: Copykitten
-0%: CopyCat
-20%: AlwaysCheat
-50%: Balance with AlwaysCheat, CopyCat, Random
+5% chance of mistake each round: Copykitten **FAIL**
+0%: CopyCat **PASS**
+20%: AlwaysCheat **PASS**
+50%: Balance with AlwaysCheat, CopyCat, Random **FAIL**
 
 Starting population: 
 3 Copykitten

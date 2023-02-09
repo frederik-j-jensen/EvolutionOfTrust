@@ -21,23 +21,23 @@ namespace EvolutionOfTrust.Model
 
                 if (move1.Equals(Move.Cooperate) && move2.Equals(Move.Cooperate))
                 {
-                    actor1.Score += 2;
-                    actor2.Score += 2;
+                    actor1.Score += Parameters.RewardCooporateOtherCooporate;
+                    actor2.Score += Parameters.RewardCooporateOtherCooporate;
                 }
                 else if (move1.Equals(Move.Cheat) && move2.Equals(Move.Cheat))
                 {
-                    actor1.Score += 0;
-                    actor2.Score += 0;
+                    actor1.Score += Parameters.RewardCheatOtherCheat;
+                    actor2.Score += Parameters.RewardCheatOtherCheat;
                 }
                 else if (move1.Equals(Move.Cooperate) && move2.Equals(Move.Cheat))
                 {
-                    actor1.Score -= 1;
-                    actor2.Score += 3;
+                    actor1.Score += Parameters.RewardCooporateOtherCheat;
+                    actor2.Score += Parameters.RewardCheatOtherCooperate;
                 }
                 else if (move1.Equals(Move.Cheat) && move2.Equals(Move.Cooperate))
                 {
-                    actor1.Score += 3;
-                    actor2.Score -= 1;
+                    actor1.Score += Parameters.RewardCheatOtherCooperate;
+                    actor2.Score += Parameters.RewardCooporateOtherCheat;
                 }
                 else
                 {
