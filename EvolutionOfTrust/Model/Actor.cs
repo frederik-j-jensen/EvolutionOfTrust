@@ -1,4 +1,4 @@
-﻿namespace GameOfTrust.Model
+﻿namespace EvolutionOfTrust.Model
 {
     public abstract class Actor
     {

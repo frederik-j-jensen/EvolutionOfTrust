@@ -1,8 +1,8 @@
-﻿using GameOfTrust.Controller;
-using GameOfTrust.Model;
-using GameOfTrust.View;
+﻿using EvolutionOfTrust.Controller;
+using EvolutionOfTrust.Model;
+using EvolutionOfTrust.View;
 
-namespace GameOfTrust
+namespace EvolutionOfTrust
 {
     public class Game
     {

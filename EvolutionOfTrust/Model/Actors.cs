@@ -1,6 +1,6 @@
 ﻿using System.Collections;
 
-namespace GameOfTrust.Model
+namespace EvolutionOfTrust.Model
 {
     public class Actors : IEnumerable<Actor>
     {

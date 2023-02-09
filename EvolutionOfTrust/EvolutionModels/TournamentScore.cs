@@ -1,6 +1,6 @@
-﻿using GameOfTrust.Model;
+﻿using EvolutionOfTrust.Model;
 
-namespace GameOfTrust.EvolutionModels
+namespace EvolutionOfTrust.EvolutionModels
 {
     /// <summary>
     /// An evolution model where the actors total score in each tournament decides whether they get elimiated or get to reproduce.

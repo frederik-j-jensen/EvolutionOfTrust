@@ -1,4 +1,4 @@
-﻿using GameOfTrust;
+﻿using EvolutionOfTrust;
 
 Console.WriteLine("***************************************************************");
 Console.WriteLine("*          Welcome to Frederik's Evolution of Trust!          *");

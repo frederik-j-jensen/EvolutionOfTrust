@@ -1,23 +1,26 @@
-﻿using GameOfTrust.Actors;
-using GameOfTrust.Model;
+﻿using EvolutionOfTrust.Actors;
+using EvolutionOfTrust.Model;
 
-namespace GameOfTrust.PopulationBuilders
+namespace EvolutionOfTrust.PopulationBuilders
 {
-    public class Step6Distribution : PopulationBuilder
+    /// <summary>
+    /// The population from NCase EvolutionOfTrust step 4.
+    /// </summary>
+    public class NCasePopulation4 : PopulationBuilder
     {
 
         private int Count = 0;
 
-        public Step6Distribution(int totalPopulation) : base(totalPopulation) { }
+        public NCasePopulation4(int totalPopulation) : base(totalPopulation) { }
 
         protected override Actor CreateActor()
         {
             Actor actor;
-            if (Count == 0)
+            if (Count < 5)
             {
                 actor = new AlwaysCheat();
             }
-            else if (Count == 1)
+            else if (Count < 10)
             {
                 actor = new CopyCat();
             }

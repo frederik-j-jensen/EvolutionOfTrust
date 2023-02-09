@@ -1,7 +1,7 @@
-﻿using GameOfTrust.Model;
+﻿using EvolutionOfTrust.Model;
 using System.Text;
 
-namespace GameOfTrust.View
+namespace EvolutionOfTrust.View
 {
     public class UniverseView
     {

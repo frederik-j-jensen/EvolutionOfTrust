@@ -1,5 +1,5 @@
 ﻿
-namespace GameOfTrust.Model
+namespace EvolutionOfTrust.Model
 {
     public class Move
     {

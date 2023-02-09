@@ -1,6 +1,6 @@
-﻿using GameOfTrust.Model;
+﻿using EvolutionOfTrust.Model;
 
-namespace GameOfTrust.Controller
+namespace EvolutionOfTrust.Controller
 {
     public class GameController
     {

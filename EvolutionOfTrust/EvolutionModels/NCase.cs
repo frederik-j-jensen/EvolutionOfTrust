@@ -1,6 +1,6 @@
-﻿using GameOfTrust.Model;
+﻿using EvolutionOfTrust.Model;
 
-namespace GameOfTrust.EvolutionModels
+namespace EvolutionOfTrust.EvolutionModels
 {
     /// <summary>
     /// The evolution model from "The Evolution of Trust" (https://ncase.me/trust/)

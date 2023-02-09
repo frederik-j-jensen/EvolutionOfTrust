@@ -1,11 +1,11 @@
-﻿using GameOfTrust.PopulationBuilders;
+﻿using EvolutionOfTrust.PopulationBuilders;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GameOfTrust.Model
+namespace EvolutionOfTrust.Model
 {
     public abstract class PopulationBuilder
     {
@@ -26,9 +26,9 @@ namespace GameOfTrust.Model
 
         protected abstract Actor CreateActor();
 
-        public static PopulationBuilder Step6Distribution(int totalPopulation) { return new Step6Distribution(totalPopulation); }
-        public static PopulationBuilder Step6Distribution1(int totalPopulation) { return new Step6Distribution1(totalPopulation); }
-        public static PopulationBuilder Step6Distribution2(int totalPopulation) { return new Step6Distribution2(totalPopulation); }
+        public static PopulationBuilder NCasePopulation4(int totalPopulation) { return new NCasePopulation4(totalPopulation); }
+        public static PopulationBuilder NCasePopulation5(int totalPopulation) { return new NCasePopulation5(totalPopulation); }
+        public static PopulationBuilder NCasePopulation6(int totalPopulation) { return new NCasePopulation6(totalPopulation); }
         public static PopulationBuilder RandomPopulation(int totalPopulation) { return new RandomPopulation(totalPopulation); }
         public static PopulationBuilder MultiEthnic(int totalPopulation) { return new MultiEthnic(totalPopulation); }
 

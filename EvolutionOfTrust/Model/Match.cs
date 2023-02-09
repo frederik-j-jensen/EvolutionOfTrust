@@ -1,6 +1,6 @@
 ﻿using System.Runtime.CompilerServices;
 
-namespace GameOfTrust.Model
+namespace EvolutionOfTrust.Model
 {
     public class Match
     {

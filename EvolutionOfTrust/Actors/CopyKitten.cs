@@ -1,6 +1,6 @@
-﻿using GameOfTrust.Model;
+﻿using EvolutionOfTrust.Model;
 
-namespace GameOfTrust.Actors
+namespace EvolutionOfTrust.Actors
 {
     /// <summary>
     ///  I Cheat back only after you Cheat me twice in a row.

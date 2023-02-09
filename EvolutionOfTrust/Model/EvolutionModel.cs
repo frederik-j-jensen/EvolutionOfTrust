@@ -1,7 +1,7 @@
 ﻿
-using GameOfTrust.EvolutionModels;
+using EvolutionOfTrust.EvolutionModels;
 
-namespace GameOfTrust.Model
+namespace EvolutionOfTrust.Model
 {
     public abstract class EvolutionModel
     {

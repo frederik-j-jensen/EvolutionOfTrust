@@ -1,7 +1,7 @@
-﻿using GameOfTrust.EvolutionModels;
-using GameOfTrust.PopulationBuilders;
+﻿using EvolutionOfTrust.EvolutionModels;
+using EvolutionOfTrust.PopulationBuilders;
 
-namespace GameOfTrust.Model
+namespace EvolutionOfTrust.Model
 {
     public class Universe
     {
@@ -12,7 +12,7 @@ namespace GameOfTrust.Model
 
         public Universe()
         {
-            var populationBuilder = PopulationBuilder.Step6Distribution2(Parameters.InitialPopulationSize);
+            var populationBuilder = PopulationBuilder.NCasePopulation6(Parameters.InitialPopulationSize);
 
             _Population.AddRange(populationBuilder.Create());
         }

@@ -1,7 +1,7 @@
-﻿using GameOfTrust.Actors;
-using GameOfTrust.Model;
+﻿using EvolutionOfTrust.Actors;
+using EvolutionOfTrust.Model;
 
-namespace GameOfTrust.PopulationBuilders
+namespace EvolutionOfTrust.PopulationBuilders
 {
     public class MultiEthnic : PopulationBuilder
     {

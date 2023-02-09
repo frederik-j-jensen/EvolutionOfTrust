@@ -1,6 +1,6 @@
-﻿using GameOfTrust.Model;
+﻿using EvolutionOfTrust.Model;
 
-namespace GameOfTrust.Actors
+namespace EvolutionOfTrust.Actors
 {
     public class Detective : Actor
     {

@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using GameOfTrust.Controller;
-using GameOfTrust.Model;
+using EvolutionOfTrust.Controller;
+using EvolutionOfTrust.Model;
 
-namespace GameOfTrust.View
+namespace EvolutionOfTrust.View
 {
     public class GameView
     {

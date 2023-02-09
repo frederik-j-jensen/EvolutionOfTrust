@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GameOfTrust.Model
+namespace EvolutionOfTrust.Model
 {
     public class ActorsView : IEnumerable<Actor>
     {

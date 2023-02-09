@@ -1,6 +1,6 @@
-﻿using GameOfTrust.Model;
+﻿using EvolutionOfTrust.Model;
 
-namespace GameOfTrust.EvolutionModels
+namespace EvolutionOfTrust.EvolutionModels
 {
     /// <summary>
     /// An evolution model that replicate an s-curve.
