@@ -12,9 +12,6 @@
             Name = name;
             Colour = Colours.Blue;
         }
-        public virtual Move ChooseMove(History history, Colours otherColour) {
-            return ChooseMove(history);
-        }
         public virtual Move ChooseMove(History history)
         {
             return Move.Cooperate;

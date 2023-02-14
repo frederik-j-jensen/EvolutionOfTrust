@@ -3,7 +3,8 @@
 namespace EvolutionOfTrust.Actors
 {
     /// <summary>
-    ///  I Cheat back only after you Cheat me twice in a row.
+    /// Hello! I'm like Copycat, except I Cheat back only after you Cheat me twice in a row. 
+    /// After all, the first one could be a mistake! Purrrrr
     /// </summary>
     public class CopyKitten : Actor
     {
@@ -17,7 +18,7 @@ namespace EvolutionOfTrust.Actors
 
         private bool CheatedTwice(History history)
         {
-            return history.TakeLast(2).All(move => move.Equals(Move.Cheat));
+            return history.OtherMoves(this).TakeLast(2).All(move => move.Equals(Move.Cheat));
         }
 
         public override Actor Clone()

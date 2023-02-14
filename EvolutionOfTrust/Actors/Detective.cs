@@ -2,6 +2,12 @@
 
 namespace EvolutionOfTrust.Actors
 {
+    /// <summary>
+    ///  I start: Cooperate, Cheat, Cooperate, Cooperate. 
+    ///  If you cheat back, I'll act like Copycat. 
+    ///  If you never cheat back, I'll act like Always Cheat, to exploit you. 
+    ///  Elementary, my dear Watson.
+    /// </summary>
     public class Detective : Actor
     {
         public Detective() : base(nameof(Detective)) { }
@@ -16,7 +22,7 @@ namespace EvolutionOfTrust.Actors
                 case 3: return Move.Cooperate;
                 default:
                     {
-                        return history.Any(move => move.Equals(Move.Cheat)) ? history.LastMove() : Move.Cheat;
+                        return history.OtherMoves(this).Any(move => move.Equals(Move.Cheat)) ? history.OtherPreviousMove(this) : Move.Cheat;
                     }
             }
         }

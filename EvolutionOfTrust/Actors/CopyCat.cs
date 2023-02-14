@@ -8,7 +8,7 @@ namespace EvolutionOfTrust.Actors
 
         public override Move ChooseMove(History history)
         {
-            return history.IsEmpty() ? Move.Cooperate : history.LastMove();
+            return history.IsEmpty() ? Move.Cooperate : history.OtherPreviousMove(this);
         }
 
         public override Actor Clone()

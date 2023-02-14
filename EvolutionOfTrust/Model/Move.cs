@@ -10,5 +10,10 @@ namespace EvolutionOfTrust.Model
         {
             return Equals(Cheat) ? Cooperate : Cheat;
         }
+
+        public override string ToString()
+        {
+            return Equals(Cheat) ? "Cheat": "Cooperate";
+        }
     }
 }

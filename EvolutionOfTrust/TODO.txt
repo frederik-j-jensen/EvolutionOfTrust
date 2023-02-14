@@ -1,6 +1,16 @@
 ﻿BACKLOG:
 
-1: Reproduce results from the original:
+1: ADD UNIT TESTS FOR NCASE test cases:
+---------------------------------------
+
+ActorTest
+HistoryTest
+TournamentTest
+UniverseTest
+GameTest
+
+
+2: Reproduce results from the original:
 ---------------------------------------
 
 4. Repeated Tournament (CopyCat is best)
@@ -17,10 +27,10 @@
 
 
 6 Making Misteaks (Copykitten is best in a more mean population) 
-5% chance of mistake each round: Copykitten **FAIL**
-0%: CopyCat **PASS**
-20%: AlwaysCheat **PASS**
-50%: Balance with AlwaysCheat, CopyCat, Random **FAIL**
+5% chance of mistake each round: Copykitten 
+0%: CopyCat 
+20%: AlwaysCheat 
+50%: Balance with AlwaysCheat, CopyCat, Random 
 
 Starting population: 
 3 Copykitten
@@ -32,10 +42,7 @@ Starting population:
 
 
 
-
-
-
-2: Investigate how introduction of a Biased actor change the dynamics:
+3: Investigate how introduction of a Biased actor change the dynamics:
 ----------------------------------------------------------------------
 
 SCENARIO 1:

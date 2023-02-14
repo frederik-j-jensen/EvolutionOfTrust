@@ -8,16 +8,14 @@ namespace EvolutionOfTrust.Model
 
         public void Play(Actor actor1, Actor actor2)
         {
-            var historyActor1 = new History();
-            var historyActor2 = new History();
-
+            var history = new History(actor1, actor2);
+            
             for (int i = 0; i < Parameters.NumberOfRounds; i++)
             {
-                var move1 = Transmit(actor1.ChooseMove(historyActor2, actor2.Colour));
-                var move2 = Transmit(actor2.ChooseMove(historyActor1, actor1.Colour));
+                var move1 = Transmit(actor1.ChooseMove(history));
+                var move2 = Transmit(actor2.ChooseMove(history));
 
-                historyActor1.AddMove(move1);
-                historyActor2.AddMove(move2);
+                history.AddMove(move1, move2);
 
                 if (move1.Equals(Move.Cooperate) && move2.Equals(Move.Cooperate))
                 {
