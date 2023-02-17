@@ -4,20 +4,20 @@ namespace EvolutionOfTrust.Model
 {
     public class Match
     {
-        private readonly Parameters _Parameters;
-        private readonly Random _Random;
+        private readonly Parameters Parameters;
+        private readonly Random Random;
 
         public Match(Parameters parameters, Random random)
         {
-            _Random = random;
-            _Parameters = parameters;
+            Random = random;
+            Parameters = parameters;
         }
 
         public void Play(Actor actor1, Actor actor2)
         {
             var history = new History(actor1, actor2);
 
-            for (int i = 0; i < _Parameters.NumberOfRounds; i++)
+            for (int i = 0; i < Parameters.NumberOfRounds; i++)
             {
                 var move1 = Transmit(actor1.ChooseMove(history));
                 var move2 = Transmit(actor2.ChooseMove(history));
@@ -49,9 +49,10 @@ namespace EvolutionOfTrust.Model
                     throw new Exception($"Unexpected combination of moves: {move1} and {move2}");
                 }
             }
+
         }
 
-        private Move Transmit(Move move) => _Random.Next(1000) < 10 * _Parameters.ProbabilityOfMistakePercent
+        private Move Transmit(Move move) => (Random.NextDouble() * 100) < Parameters.ProbabilityOfMistakePercent
                 ? move.Opposite() : move;
     }
 }

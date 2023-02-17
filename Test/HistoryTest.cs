@@ -8,7 +8,7 @@ namespace Test
     {
 
         [TestMethod]
-        public void Test1()
+        public void AddMove()
         {
             var actor1 = new AlwaysCheat();
             var actor2 = new AlwaysCooperate();
@@ -23,6 +23,35 @@ namespace Test
 
             Assert.AreEqual(Move.Cheat, h.MyPreviousMove(actor1));
             Assert.AreEqual(Move.Cooperate, h.OtherPreviousMove(actor1));
+
+        }
+
+        [TestMethod]
+        public void OtherMoves()
+        {
+            var actor1 = new AlwaysCheat();
+            var actor2 = new AlwaysCooperate();
+            var h = new History(actor1, actor2);
+
+            h.AddMove(Move.Cheat, Move.Cooperate);
+            h.AddMove(Move.Cheat, Move.Cooperate);
+
+            {
+                var moves = h.OtherMoves(actor1).TakeLast(2);
+                foreach (var move in moves)
+                {
+                    Assert.AreEqual(Move.Cooperate, move);
+                }
+            }
+
+            {
+                var moves = h.OtherMoves(actor2).TakeLast(2);
+                foreach (var move in moves)
+                {
+                    Assert.AreEqual(Move.Cheat, move);
+                }
+            }
+
 
         }
     }

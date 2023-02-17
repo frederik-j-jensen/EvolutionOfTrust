@@ -20,7 +20,7 @@ namespace EvolutionOfTrust.Actors
                 : history.OtherPreviousMove(this).Equals(Move.Cooperate) ? history.MyPreviousMove(this)
                 : history.MyPreviousMove(this).Opposite();
 
-        public override Actor Clone()
+        public override Actor DoClone()
         {
             return new Simpleton();
         }

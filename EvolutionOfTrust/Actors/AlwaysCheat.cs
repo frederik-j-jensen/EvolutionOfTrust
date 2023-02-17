@@ -11,7 +11,7 @@ namespace EvolutionOfTrust.Actors
             return Move.Cheat;
         }
 
-        public override Actor Clone()
+        public override Actor DoClone()
         {
             return new AlwaysCheat();
         }

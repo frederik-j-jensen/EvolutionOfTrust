@@ -177,6 +177,43 @@ namespace Test
         }
 
         [TestMethod]
+        public void CopyKittenCheatedTwice()
+        {
+            var other = new AlwaysCooperate();
+            var me = new CopyKitten();
+            {
+                var h = EmptyHistory(me, other);
+                var b = me.CheatedTwice(h);
+                Assert.IsFalse(b);
+            }
+            {
+                var h = HistoryOfCheating(me, other);
+                var b = me.CheatedTwice(h);
+                Assert.IsTrue(b);
+            }
+            {
+                var h = HistoryOfCooperation(me, other);
+                var b = me.CheatedTwice(h);
+                Assert.IsFalse(b);
+            }
+            {
+                var h = MixedHistory1(me, other);
+                var b = me.CheatedTwice(h);
+                Assert.IsFalse(b);
+            }
+            {
+                var h = MixedHistory2(me, other);
+                var b = me.CheatedTwice(h);
+                Assert.IsFalse(b);
+            }
+            {
+                var h = MixedHistory3(me, other);
+                var b = me.CheatedTwice(h);
+                Assert.IsTrue(b);
+            }
+        }
+
+        [TestMethod]
         public void Detective()
         {
             var other = new AlwaysCooperate();

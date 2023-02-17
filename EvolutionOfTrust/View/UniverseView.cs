@@ -39,7 +39,7 @@ namespace EvolutionOfTrust.View
             s.AppendLine("Winners:");
             foreach (var actor in Universe.Winners())
             {
-                s.AppendLine( $" {actor}");
+                s.AppendLine($" {actor}");
             }
             s.AppendLine();
 
@@ -70,5 +70,9 @@ namespace EvolutionOfTrust.View
             return result;
         }
 
+        public IEnumerable<Actor> Winners()
+        {
+            return Universe.Winners();
+        }
     }
 }

@@ -11,7 +11,7 @@ namespace EvolutionOfTrust.Actors
             return history.IsEmpty() ? Move.Cooperate : history.OtherPreviousMove(this);
         }
 
-        public override Actor Clone()
+        public override Actor DoClone()
         {
             return new CopyCat();
         }

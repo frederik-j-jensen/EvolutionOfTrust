@@ -20,7 +20,7 @@ namespace EvolutionOfTrust.Actors
             return Random.Next(2) == 0 ? Move.Cheat : Move.Cooperate;
         }
 
-        public override Actor Clone()
+        public override Actor DoClone()
         {
             return new Monkey(Random);
         }

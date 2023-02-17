@@ -1,41 +1,5 @@
 ﻿BACKLOG:
 
-1: ADD UNIT TESTS FOR NCASE test cases:
----------------------------------------
-
-GameTest
-
-
-2: Reproduce results from the original:
----------------------------------------
-
-4. Repeated Tournament (CopyCat is best)
-
-
-5.1 Evolution of Distrust -- variable number of rounds (+/- 10)
-
-10 Rounds: CopyCat
-7 Rounds: CopyCat
-5 Rounds: AlwaysCheat
-
-
-5.2 Change the reward from +2/+2 to +1/+1 (AlwaysCheat wins)
-
-
-6 Making Misteaks (Copykitten is best in a more mean population) 
-5% chance of mistake each round: Copykitten 
-0%: CopyCat 
-20%: AlwaysCheat 
-50%: Balance with AlwaysCheat, CopyCat, Random 
-
-Starting population: 
-3 Copykitten
-3 Simpleton
-3 Random
-3 CopyCat
-13 AlwaysCheat
-
-
 
 
 3: Investigate how introduction of a Biased actor change the dynamics:

@@ -18,17 +18,17 @@ namespace EvolutionOfTrust.Model
 
         public Colours OtherColour(Actor me) { return Actor1.Equals(me) ? Actor1.Colour : Actor2.Colour; }
 
-        public IEnumerable<Move> OtherMoves(Actor me) { return Moves.Select(tupple => me.Equals(Actor1) ? tupple.Item1 : tupple.Item2); }
+        public IEnumerable<Move> OtherMoves(Actor me) { return Moves.Select(tupple => Actor1.Equals(me) ? tupple.Item2 : tupple.Item1); }
         public Move OtherPreviousMove(Actor me)
         {
             var tupple = Moves.Last();
-            return me.Equals(Actor1) ? tupple.Item2 : tupple.Item1;
+            return Actor1.Equals(me) ? tupple.Item2 : tupple.Item1;
         }
 
         public Move MyPreviousMove(Actor me)
         {
             var tupple = Moves.Last();
-            return me.Equals(Actor1) ? tupple.Item1 : tupple.Item2;
+            return Actor1.Equals(me) ? tupple.Item1 : tupple.Item2;
         }
 
         public void AddMove(Move move1, Move move2) { Moves.Add(new Tuple<Move, Move>(move1, move2)); }

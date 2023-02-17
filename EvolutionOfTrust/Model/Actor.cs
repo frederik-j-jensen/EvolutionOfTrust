@@ -16,7 +16,17 @@
         {
             return Move.Cooperate;
         }
-        public abstract Actor Clone();
+        public Actor Clone() {
+            var actor = DoClone();
+
+            actor.Colour = Colour;
+            actor.Score = Score;
+            actor.Name = Name;
+
+            return actor;
+        }
+
+        public abstract Actor DoClone();
 
         public override string ToString()
         {

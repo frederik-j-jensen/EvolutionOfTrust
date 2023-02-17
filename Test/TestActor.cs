@@ -24,7 +24,7 @@ namespace Test
             return ChooseThisMove;
         }
 
-        public override Actor Clone()
+        public override Actor DoClone()
         {
             throw new NotImplementedException();
         }

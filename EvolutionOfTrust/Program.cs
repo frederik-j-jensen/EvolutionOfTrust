@@ -6,7 +6,10 @@ Console.WriteLine("*          Welcome to Frederik's Evolution of Trust!         
 Console.WriteLine("* Based on \"The Evolution of Trust\" (https://ncase.me/trust/) *");
 Console.WriteLine("***************************************************************");
 
-var game = new Game(PopulationBuilder.NCasePopulation6(), EvolutionModel.NCase());
+var parameters = new Parameters();
+parameters.ProbabilityOfMistakePercent = 50.0;
+parameters.Seed = DateTimeOffset.Now.Millisecond;
+var game = new Game(PopulationBuilder.NCasePopulation6(), EvolutionModel.NCase(), parameters, new Random(parameters.Seed));
 Console.WriteLine(game.ViewParameters());
 Console.WriteLine(game.ViewSummary());
 

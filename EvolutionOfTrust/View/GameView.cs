@@ -43,8 +43,14 @@ namespace EvolutionOfTrust.View
             s.AppendLine($"NumberOfTurns: {Parameters.NumberOfTurns}");
             s.AppendLine($"NumberOfRounds: {Parameters.NumberOfRounds}");
             s.AppendLine($"ProbabilityOfMistakePercent: {Parameters.ProbabilityOfMistakePercent}");
+            s.AppendLine($"ProbabilityOfMistakePercent: {Parameters.Seed}");
 
             return s.ToString();
+        }
+
+        public IEnumerable<Actor> Winners()
+        {
+            return UniverseView.Winners();
         }
     }
 }

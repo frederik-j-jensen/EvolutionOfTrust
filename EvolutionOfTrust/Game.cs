@@ -9,15 +9,15 @@ namespace EvolutionOfTrust
         private GameView View;
         private GameController Controller;
 
-        public Game(PopulationBuilder populationBuilder, EvolutionModel evolutionModel)
+        public Game(PopulationBuilder populationBuilder, EvolutionModel evolutionModel, Parameters parameters, Random random)
         {
-            var state = new State();
-            var parameters = new Parameters();
-            var random = new Random();
             var universe = new Universe(populationBuilder, evolutionModel, parameters, random);
+            var state = new State();
             Controller = new GameController(universe, state, parameters);
             View = new GameView(universe, state, parameters);
         }
+
+        public Game(PopulationBuilder populationBuilder, EvolutionModel evolutionModel) : this(populationBuilder, evolutionModel, new Parameters(), new Random()) { }
 
         public void PlayTurn()
         {
@@ -47,6 +47,11 @@ namespace EvolutionOfTrust
         public string ViewParameters()
         {
             return View.ParametersView();
+        }
+
+        public IEnumerable<Actor> Winners()
+        {
+            return View.Winners();
         }
     }
 }

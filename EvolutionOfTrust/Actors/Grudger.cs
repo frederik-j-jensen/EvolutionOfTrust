@@ -15,7 +15,7 @@ namespace EvolutionOfTrust.Actors
             return history.OtherMoves(this).Any(move => move.Equals(Move.Cheat)) ? Move.Cheat : Move.Cooperate;
         }
 
-        public override Actor Clone()
+        public override Actor DoClone()
         {
             return new Grudger();
         }

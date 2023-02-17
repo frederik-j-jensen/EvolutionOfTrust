@@ -8,16 +8,17 @@ namespace EvolutionOfTrust.Controller
         State GameState;
         Parameters Parameters;
 
-        public GameController(Universe universe, State gameState, Parameters parameters)
+        public GameController(Universe universe, State state, Parameters parameters)
         {
             Universe = universe;
-            GameState = gameState;
+            GameState = state;
             Parameters = parameters;
         }
 
         public void Run()
         {
             while (GameState.Turn < Parameters.NumberOfTurns) Step();
+            PlayTournament();
         }
 
         public void Step()

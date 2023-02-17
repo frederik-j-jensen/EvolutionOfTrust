@@ -10,7 +10,7 @@ namespace EvolutionOfTrust.Actors
         {
             return Move.Cooperate;
         }
-        public override Actor Clone()
+        public override Actor DoClone()
         {
             return new AlwaysCooperate();
         }

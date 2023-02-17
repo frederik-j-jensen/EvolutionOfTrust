@@ -27,7 +27,7 @@ namespace EvolutionOfTrust.Actors
             }
         }
 
-        public override Actor Clone()
+        public override Actor DoClone()
         {
             return new Detective();
         }

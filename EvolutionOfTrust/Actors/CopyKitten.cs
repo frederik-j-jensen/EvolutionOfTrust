@@ -12,16 +12,16 @@ namespace EvolutionOfTrust.Actors
 
         public override Move ChooseMove(History history)
         {
-            return history.Count < 2 ? Move.Cooperate :
-                CheatedTwice(history) ? Move.Cheat : Move.Cooperate;
+            return CheatedTwice(history) ? Move.Cheat : Move.Cooperate;
         }
 
-        private bool CheatedTwice(History history)
+        public bool CheatedTwice(History history)
         {
-            return history.OtherMoves(this).TakeLast(2).All(move => move.Equals(Move.Cheat));
+            return history.Count < 2 ? false : 
+                history.OtherMoves(this).TakeLast(2).All(move => move.Equals(Move.Cheat));
         }
 
-        public override Actor Clone()
+        public override Actor DoClone()
         {
             return new CopyKitten();
         }

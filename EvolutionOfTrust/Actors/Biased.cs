@@ -12,7 +12,7 @@ namespace EvolutionOfTrust.Actors
             Colours otherColour = history.OtherColour(this);
             return otherColour.Equals(Colour) ? Move.Cooperate : Move.Cheat;
         }
-        public override Actor Clone()
+        public override Actor DoClone()
         {
             return new Biased(Colour);
         }
