@@ -2,6 +2,9 @@
 
 namespace EvolutionOfTrust.Actors
 {
+    /// <summary>
+    /// If you look like me, I will cooperate, if you don't, I will cheat you.
+    /// </summary>
     public class Biased : Actor
     {
         public Biased() : this(Colours.Red) { }
