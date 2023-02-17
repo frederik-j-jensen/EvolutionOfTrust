@@ -3,10 +3,6 @@
 1: ADD UNIT TESTS FOR NCASE test cases:
 ---------------------------------------
 
-ActorTest
-HistoryTest
-TournamentTest
-UniverseTest
 GameTest
 
 

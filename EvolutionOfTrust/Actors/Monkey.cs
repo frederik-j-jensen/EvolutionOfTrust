@@ -9,9 +9,11 @@ namespace EvolutionOfTrust.Actors
     /// </summary>
     public class Monkey : Actor
     {
-        private static Random Random = new Random();
+        private Random Random;
 
-        public Monkey() : base(nameof(Monkey)) { }
+        public Monkey(Random random) : base(nameof(Monkey)) {
+            Random = random;
+        }
 
         public override Move ChooseMove(History history)
         {
@@ -20,7 +22,7 @@ namespace EvolutionOfTrust.Actors
 
         public override Actor Clone()
         {
-            return new Monkey();
+            return new Monkey(Random);
         }
     }
 }

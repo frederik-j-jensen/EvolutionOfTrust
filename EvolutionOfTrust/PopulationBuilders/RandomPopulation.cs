@@ -5,9 +5,13 @@ namespace EvolutionOfTrust.PopulationBuilders
 {
     public class RandomPopulation : PopulationBuilder
     {
-        private Random Random = new Random();
+        private readonly Random Random;
 
-        public RandomPopulation(int totalPopulation) : base(totalPopulation) { }
+        public RandomPopulation(int totalPopulation) : this(totalPopulation, new Random()) { }
+
+        public RandomPopulation(int totalPopulation, Random random) : base(totalPopulation) { 
+            Random = random;
+        }
 
         protected override Actor CreateActor()
         {
@@ -21,7 +25,7 @@ namespace EvolutionOfTrust.PopulationBuilders
                 case 5: return new Grudger();
                 case 6: return new Detective();
                 case 7: return new Grudger();
-                case 8: return new Monkey();
+                case 8: return new Monkey(Random);
                 case 9: return new Simpleton();
                 default:
                     throw new ArgumentOutOfRangeException();

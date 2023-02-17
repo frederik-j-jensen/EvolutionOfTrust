@@ -10,8 +10,14 @@ namespace EvolutionOfTrust.PopulationBuilders
     {
 
         private int Count = 0;
+        private readonly Random Random;
 
-        public NCasePopulation6(int totalPopulation) : base(totalPopulation) { }
+        public NCasePopulation6() : this(new Random()) { }
+
+        public NCasePopulation6(Random random) : base(25)
+        {
+            Random = random;
+        }
 
         protected override Actor CreateActor()
         {
@@ -34,7 +40,7 @@ namespace EvolutionOfTrust.PopulationBuilders
             }
             else
             {
-                actor = new Monkey();
+                actor = new Monkey(Random);
             }
             Count++;
             return actor;

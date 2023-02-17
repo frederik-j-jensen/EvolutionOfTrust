@@ -1,30 +1,27 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using EvolutionOfTrust.Model;
 using System.Text;
-using System.Threading.Tasks;
-using EvolutionOfTrust.Controller;
-using EvolutionOfTrust.Model;
 
 namespace EvolutionOfTrust.View
 {
     public class GameView
     {
-        private State _GameState;
-        private UniverseView _UniverseView;
+        private UniverseView UniverseView;
+        private State GameState;
+        private Parameters Parameters;
 
-        public GameView(State gameState, Universe universe)
+        public GameView(Universe universe, State gameState, Parameters parameters)
         {
-            _GameState = gameState;
-            _UniverseView = new UniverseView(universe);
+            GameState = gameState;
+            UniverseView = new UniverseView(universe);
+            Parameters = parameters;
         }
 
         public string Summary()
         {
             var s = new StringBuilder();
 
-            s.AppendLine($"Turn: {_GameState.Turn}");
-            s.AppendLine(_UniverseView.Summary());
+            s.AppendLine($"Turn: {GameState.Turn}");
+            s.AppendLine(UniverseView.Summary());
 
             return s.ToString();
         }
@@ -33,8 +30,8 @@ namespace EvolutionOfTrust.View
         {
             var s = new StringBuilder();
 
-            s.AppendLine($"Turn: {_GameState.Turn}");
-            s.AppendLine(_UniverseView.Details());
+            s.AppendLine($"Turn: {GameState.Turn}");
+            s.AppendLine(UniverseView.Details());
 
             return s.ToString();
         }
@@ -43,7 +40,6 @@ namespace EvolutionOfTrust.View
         {
             var s = new StringBuilder();
 
-            s.AppendLine($"InitialPopulationSize: {Parameters.InitialPopulationSize}");
             s.AppendLine($"NumberOfTurns: {Parameters.NumberOfTurns}");
             s.AppendLine($"NumberOfRounds: {Parameters.NumberOfRounds}");
             s.AppendLine($"ProbabilityOfMistakePercent: {Parameters.ProbabilityOfMistakePercent}");

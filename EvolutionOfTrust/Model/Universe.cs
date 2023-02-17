@@ -5,21 +5,27 @@ namespace EvolutionOfTrust.Model
 {
     public class Universe
     {
-        private EvolutionModel EvolutionModel = EvolutionModel.NCase();
+        private readonly EvolutionModel EvolutionModel;
+        private readonly Parameters Parameters;
+        private readonly Random Random;
 
         private Actors _Population = new Actors();
+
         public ActorsView Population { get { return new ActorsView(_Population); } }
 
-        public Universe()
+        public Universe(PopulationBuilder populationBuilder, EvolutionModel evolutionModel, Parameters parameters, Random random)
         {
-            var populationBuilder = PopulationBuilder.NCasePopulation6(Parameters.InitialPopulationSize);
+            EvolutionModel = evolutionModel;
+
+            Parameters = parameters;
+            Random = random;
 
             _Population.AddRange(populationBuilder.Create());
         }
 
         public void PlayTournament()
         {
-            var tournament = new Tournament();
+            var tournament = new Tournament(Parameters, Random);
             tournament.Play(_Population);
         }
 

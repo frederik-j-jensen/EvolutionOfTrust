@@ -1,15 +1,10 @@
 ﻿using EvolutionOfTrust.PopulationBuilders;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace EvolutionOfTrust.Model
 {
     public abstract class PopulationBuilder
     {
-        public int TotalPopulation;
+        public int TotalPopulation { get; private set; }
 
         public PopulationBuilder(int totalPopulation)
         {
@@ -18,7 +13,7 @@ namespace EvolutionOfTrust.Model
 
         public IEnumerable<Actor> Create()
         {
-            for (int i = 0; i < Parameters.InitialPopulationSize; i++)
+            for (int i = 0; i < TotalPopulation; i++)
             {
                 yield return CreateActor();
             }
@@ -26,11 +21,11 @@ namespace EvolutionOfTrust.Model
 
         protected abstract Actor CreateActor();
 
-        public static PopulationBuilder NCasePopulation4(int totalPopulation) { return new NCasePopulation4(totalPopulation); }
-        public static PopulationBuilder NCasePopulation5(int totalPopulation) { return new NCasePopulation5(totalPopulation); }
-        public static PopulationBuilder NCasePopulation6(int totalPopulation) { return new NCasePopulation6(totalPopulation); }
-        public static PopulationBuilder RandomPopulation(int totalPopulation) { return new RandomPopulation(totalPopulation); }
-        public static PopulationBuilder MultiEthnic(int totalPopulation) { return new MultiEthnic(totalPopulation); }
+        public static PopulationBuilder NCasePopulation4() { return new NCasePopulation4(); }
+        public static PopulationBuilder NCasePopulation5() { return new NCasePopulation5(); }
+        public static PopulationBuilder NCasePopulation6() { return new NCasePopulation6(); }
+        public static PopulationBuilder RandomPopulation() { return new RandomPopulation(25); }
+        public static PopulationBuilder MultiEthnic() { return new MultiEthnic(25); }
 
     }
 }

@@ -1,11 +1,12 @@
 ﻿using EvolutionOfTrust;
+using EvolutionOfTrust.Model;
 
 Console.WriteLine("***************************************************************");
 Console.WriteLine("*          Welcome to Frederik's Evolution of Trust!          *");
 Console.WriteLine("* Based on \"The Evolution of Trust\" (https://ncase.me/trust/) *");
 Console.WriteLine("***************************************************************");
 
-var game = new Game();
+var game = new Game(PopulationBuilder.NCasePopulation6(), EvolutionModel.NCase());
 Console.WriteLine(game.ViewParameters());
 Console.WriteLine(game.ViewSummary());
 

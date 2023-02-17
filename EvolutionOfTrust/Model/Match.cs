@@ -4,13 +4,20 @@ namespace EvolutionOfTrust.Model
 {
     public class Match
     {
-        private Random _Random = new Random();
+        private readonly Parameters _Parameters;
+        private readonly Random _Random;
+
+        public Match(Parameters parameters, Random random)
+        {
+            _Random = random;
+            _Parameters = parameters;
+        }
 
         public void Play(Actor actor1, Actor actor2)
         {
             var history = new History(actor1, actor2);
-            
-            for (int i = 0; i < Parameters.NumberOfRounds; i++)
+
+            for (int i = 0; i < _Parameters.NumberOfRounds; i++)
             {
                 var move1 = Transmit(actor1.ChooseMove(history));
                 var move2 = Transmit(actor2.ChooseMove(history));
@@ -44,7 +51,7 @@ namespace EvolutionOfTrust.Model
             }
         }
 
-        private Move Transmit(Move move) => _Random.Next(1000) < 10 * Parameters.ProbabilityOfMistakePercent
+        private Move Transmit(Move move) => _Random.Next(1000) < 10 * _Parameters.ProbabilityOfMistakePercent
                 ? move.Opposite() : move;
     }
 }

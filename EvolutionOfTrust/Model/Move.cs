@@ -1,5 +1,4 @@
-﻿
-namespace EvolutionOfTrust.Model
+﻿namespace EvolutionOfTrust.Model
 {
     public class Move
     {
@@ -13,7 +12,7 @@ namespace EvolutionOfTrust.Model
 
         public override string ToString()
         {
-            return Equals(Cheat) ? "Cheat": "Cooperate";
+            return Equals(Cheat) ? nameof(Cheat): nameof(Cooperate);
         }
     }
 }

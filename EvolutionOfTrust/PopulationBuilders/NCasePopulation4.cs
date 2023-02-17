@@ -14,7 +14,7 @@ namespace EvolutionOfTrust.PopulationBuilders
 
         private int Count = 0;
 
-        public NCasePopulation4(int totalPopulation) : base(totalPopulation) { }
+        public NCasePopulation4() : base(25) { }
 
         protected override Actor CreateActor()
         {

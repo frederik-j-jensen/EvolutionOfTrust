@@ -6,6 +6,7 @@ namespace EvolutionOfTrust.View
     public class UniverseView
     {
         private Universe Universe;
+
         public UniverseView(Universe universe)
         {
             Universe = universe;

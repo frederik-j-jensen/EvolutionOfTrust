@@ -176,9 +176,6 @@ namespace Test
             }
         }
 
-        /// <summary>
-        /// TODO
-        /// </summary>
         [TestMethod]
         public void Detective()
         {
@@ -245,9 +242,42 @@ namespace Test
             }
         }
 
-        /// <summary>
-        /// TODO
-        /// </summary>
+        [TestMethod]
+        public void Monkey()
+        {
+            var other = new AlwaysCooperate();
+            const int seed = 123123123; // This seed produces the sequence { 1, 0, 0, 1, 0} as the next 5 numbers
+            var random = new Random(seed);
+
+            var me = new Monkey(random);
+            Assert.AreEqual(Colours.Blue, me.Colour);
+            {
+                var h = EmptyHistory(me, other);
+                var m = me.ChooseMove(h);
+                Assert.AreEqual(Move.Cooperate, m);
+            }
+            {
+                var h = HistoryOfCheating(me, other);
+                var m = me.ChooseMove(h);
+                Assert.AreEqual(Move.Cheat, m);
+            }
+            {
+                var h = HistoryOfCooperation(me, other);
+                var m = me.ChooseMove(h);
+                Assert.AreEqual(Move.Cheat, m);
+            }
+            {
+                var h = MixedHistory1(me, other);
+                var m = me.ChooseMove(h);
+                Assert.AreEqual(Move.Cooperate, m);
+            }
+            {
+                var h = MixedHistory2(me, other);
+                var m = me.ChooseMove(h);
+                Assert.AreEqual(Move.Cheat, m);
+            }
+        }
+
         [TestMethod]
         public void Simpleton()
         {

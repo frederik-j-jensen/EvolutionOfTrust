@@ -6,11 +6,13 @@ namespace EvolutionOfTrust.Controller
     {
         Universe Universe;
         State GameState;
+        Parameters Parameters;
 
-        public GameController(Universe universe, State gameState)
+        public GameController(Universe universe, State gameState, Parameters parameters)
         {
             Universe = universe;
             GameState = gameState;
+            Parameters = parameters;
         }
 
         public void Run()

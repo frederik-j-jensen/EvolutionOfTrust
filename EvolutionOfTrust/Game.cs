@@ -6,28 +6,31 @@ namespace EvolutionOfTrust
 {
     public class Game
     {
-        GameView View;
-        GameController Controller;
-        Universe Universe;
-        State State;
+        private GameView View;
+        private GameController Controller;
 
-        public Game()
+        public Game(PopulationBuilder populationBuilder, EvolutionModel evolutionModel)
         {
-            Universe = new Universe();
-            State = new State();
-            Controller = new GameController(Universe, State);
-            View = new GameView(State, Universe);
+            var state = new State();
+            var parameters = new Parameters();
+            var random = new Random();
+            var universe = new Universe(populationBuilder, evolutionModel, parameters, random);
+            Controller = new GameController(universe, state, parameters);
+            View = new GameView(universe, state, parameters);
         }
 
-        public void PlayTurn() {
+        public void PlayTurn()
+        {
             Controller.PlayTournament();
         }
 
-        public void ResolveTurn() {
+        public void ResolveTurn()
+        {
             Controller.ResolveTournament();
         }
 
-        public void RunToEnd() {
+        public void RunToEnd()
+        {
             Controller.Run();
         }
 
