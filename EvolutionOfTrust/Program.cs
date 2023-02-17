@@ -7,7 +7,7 @@ Console.WriteLine("* Based on \"The Evolution of Trust\" (https://ncase.me/trust
 Console.WriteLine("***************************************************************");
 
 var parameters = new Parameters();
-parameters.ProbabilityOfMistakePercent = 50.0;
+parameters.ProbabilityOfMistakePercent = 5.0;
 parameters.Seed = DateTimeOffset.Now.Millisecond;
 var game = new Game(PopulationBuilder.NCasePopulation6(), EvolutionModel.NCase(), parameters, new Random(parameters.Seed));
 Console.WriteLine(game.ViewParameters());
