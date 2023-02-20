@@ -8,7 +8,7 @@ namespace EvolutionOfTrust.Actors
     public class Biased : Actor
     {
         public Biased() : this(Colours.Red) { }
-        public Biased(Colours colour) : base(nameof(Biased) + colour) { Colour = colour; }
+        public Biased(Colours colour) : base(nameof(Biased), colour) { }
 
         public override Move ChooseMove(History history)
         {

@@ -20,7 +20,7 @@ namespace EvolutionOfTrust.View
         {
             var s = new StringBuilder();
 
-            s.AppendLine($"Turn: {GameState.Turn}");
+            s.AppendLine($"Turn: {1 + GameState.Turn}");
             s.AppendLine(UniverseView.Summary());
 
             return s.ToString();
@@ -30,7 +30,7 @@ namespace EvolutionOfTrust.View
         {
             var s = new StringBuilder();
 
-            s.AppendLine($"Turn: {GameState.Turn}");
+            s.AppendLine($"Turn: {1 + GameState.Turn}");
             s.AppendLine(UniverseView.Details());
 
             return s.ToString();
@@ -40,10 +40,10 @@ namespace EvolutionOfTrust.View
         {
             var s = new StringBuilder();
 
-            s.AppendLine($"NumberOfTurns: {Parameters.NumberOfTurns}");
-            s.AppendLine($"NumberOfRounds: {Parameters.NumberOfRounds}");
-            s.AppendLine($"ProbabilityOfMistakePercent: {Parameters.ProbabilityOfMistakePercent}");
-            s.AppendLine($"ProbabilityOfMistakePercent: {Parameters.Seed}");
+            s.AppendLine($"{nameof(Parameters.NumberOfTurns)}: {Parameters.NumberOfTurns}");
+            s.AppendLine($"{nameof(Parameters.NumberOfRounds)}: {Parameters.NumberOfRounds}");
+            s.AppendLine($"{nameof(Parameters.ProbabilityOfMistakePercent)}: {Parameters.ProbabilityOfMistakePercent}");
+            s.AppendLine($"{nameof(Parameters.Seed)}: {Parameters.Seed}");
 
             return s.ToString();
         }

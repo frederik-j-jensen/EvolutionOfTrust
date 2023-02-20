@@ -1,6 +1,7 @@
 ﻿using EvolutionOfTrust.Controller;
 using EvolutionOfTrust.Model;
 using EvolutionOfTrust.View;
+using System.Text;
 
 namespace EvolutionOfTrust
 {
@@ -31,7 +32,7 @@ namespace EvolutionOfTrust
 
         public void RunToEnd()
         {
-            Controller.Run();
+            Controller.RunToEnd();
         }
 
         public string ViewSummary()
@@ -52,6 +53,22 @@ namespace EvolutionOfTrust
         public IEnumerable<Actor> Winners()
         {
             return View.Winners();
+        }
+
+        public void Play(StringBuilder output)
+        {
+            output.AppendLine(ViewParameters());
+            output.AppendLine(ViewSummary());
+
+            PlayTurn();
+            output.AppendLine(ViewDetails());
+            ResolveTurn();
+            output.AppendLine(ViewSummary());
+
+            while (Controller.Step())
+            {
+                output.AppendLine(ViewSummary());
+            }
         }
     }
 }

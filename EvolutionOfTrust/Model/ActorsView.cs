@@ -9,14 +9,15 @@ namespace EvolutionOfTrust.Model
 {
     public class ActorsView : IEnumerable<Actor>
     {
-        private static Random Random = new Random();
+        private readonly Random Random;
 
         private readonly Actors _Actors;
         public int Count { get { return _Actors.Count; } }
 
-        public ActorsView(Actors actors)
+        public ActorsView(Actors actors, Random random)
         {
             _Actors = actors;
+            Random = random;
         }
 
         public IEnumerator<Actor> GetEnumerator()
@@ -33,7 +34,7 @@ namespace EvolutionOfTrust.Model
         {
             var list = new List<Actor>(_Actors);
             list.Sort((a1, a2) => a1.Score.CompareTo(a2.Score));
-            var threshold = list[x-1].Score;
+            var threshold = list[x - 1].Score;
             var candidates = list.Where(a => a.Score <= threshold).ToList();
             Shuffle(candidates);
             return candidates.Take(x);
@@ -49,7 +50,7 @@ namespace EvolutionOfTrust.Model
             return list.Take(x);
         }
 
-        public static void Shuffle<T>(List<T> list)
+        public void Shuffle<T>(List<T> list)
         {
             int n = list.Count;
             while (n > 1)

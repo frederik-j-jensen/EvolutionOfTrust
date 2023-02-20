@@ -12,18 +12,16 @@ namespace EvolutionOfTrust.PopulationBuilders
     public class NCasePopulation4 : PopulationBuilder
     {
 
-        private int Count = 0;
-
         public NCasePopulation4() : base(25) { }
 
-        protected override Actor CreateActor()
+        protected override Actor CreateActor(int i)
         {
             Actor actor;
-            if (Count < 5)
+            if (i < 5)
             {
                 actor = new AlwaysCheat();
             }
-            else if (Count < 10)
+            else if (i < 10)
             {
                 actor = new CopyCat();
             }
@@ -31,7 +29,6 @@ namespace EvolutionOfTrust.PopulationBuilders
             {
                 actor = new AlwaysCooperate();
             }
-            Count++;
             return actor;
         }
     }

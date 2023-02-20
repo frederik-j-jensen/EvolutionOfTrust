@@ -15,11 +15,11 @@ namespace EvolutionOfTrust.Model
         {
             for (int i = 0; i < TotalPopulation; i++)
             {
-                yield return CreateActor();
+                yield return CreateActor(i);
             }
         }
 
-        protected abstract Actor CreateActor();
+        protected abstract Actor CreateActor(int i);
 
         public static PopulationBuilder NCasePopulation4() { return new NCasePopulation4(); }
         public static PopulationBuilder NCasePopulation5() { return new NCasePopulation5(); }

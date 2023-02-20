@@ -4,7 +4,8 @@ namespace EvolutionOfTrust.Actors
 {
     public class AlwaysCooperate : Actor
     {
-        public AlwaysCooperate() : base(nameof(AlwaysCooperate)) { }
+        public AlwaysCooperate() : this(Colours.Blue) { }
+        public AlwaysCooperate(Colours colour) : base(nameof(AlwaysCooperate), colour) { }
 
         public override Move ChooseMove(History history)
         {
@@ -12,7 +13,7 @@ namespace EvolutionOfTrust.Actors
         }
         public override Actor DoClone()
         {
-            return new AlwaysCooperate();
+            return new AlwaysCooperate(Colour);
         }
 
     }

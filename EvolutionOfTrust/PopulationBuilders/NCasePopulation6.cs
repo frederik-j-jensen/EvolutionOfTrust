@@ -9,7 +9,6 @@ namespace EvolutionOfTrust.PopulationBuilders
     public class NCasePopulation6 : PopulationBuilder
     {
 
-        private int Count = 0;
         private readonly Random Random;
 
         public NCasePopulation6() : this(new Random()) { }
@@ -19,22 +18,22 @@ namespace EvolutionOfTrust.PopulationBuilders
             Random = random;
         }
 
-        protected override Actor CreateActor()
+        protected override Actor CreateActor(int i)
         {
             Actor actor;
-            if (Count <= 12)
+            if (i <= 12)
             {
                 actor = new AlwaysCheat();
             }
-            else if (Count <= 15)
+            else if (i <= 15)
             {
                 actor = new CopyCat();
             }
-            else if (Count <= 18)
+            else if (i <= 18)
             {
                 actor = new CopyKitten();
             }
-            else if (Count <= 21)
+            else if (i <= 21)
             {
                 actor = new Simpleton();
             }
@@ -42,7 +41,6 @@ namespace EvolutionOfTrust.PopulationBuilders
             {
                 actor = new Monkey(Random);
             }
-            Count++;
             return actor;
         }
     }

@@ -4,7 +4,8 @@ namespace EvolutionOfTrust.Actors
 {
     public class AlwaysCheat : Actor
     {
-        public AlwaysCheat() : base(nameof(AlwaysCheat)) { }
+        public AlwaysCheat() : this(Colours.Blue) { }
+        public AlwaysCheat(Colours colour) : base(nameof(AlwaysCheat), colour) { }
 
         public override Move ChooseMove(History history)
         {
@@ -13,7 +14,7 @@ namespace EvolutionOfTrust.Actors
 
         public override Actor DoClone()
         {
-            return new AlwaysCheat();
+            return new AlwaysCheat(Colour);
         }
     }
 }

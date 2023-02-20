@@ -16,7 +16,7 @@ namespace EvolutionOfTrust.Model
             Actor2 = actor2;
         }
 
-        public Colours OtherColour(Actor me) { return Actor1.Equals(me) ? Actor1.Colour : Actor2.Colour; }
+        public Colours OtherColour(Actor me) { return Actor1.Equals(me) ? Actor2.Colour : Actor1.Colour; }
 
         public IEnumerable<Move> OtherMoves(Actor me) { return Moves.Select(tupple => Actor1.Equals(me) ? tupple.Item2 : tupple.Item1); }
         public Move OtherPreviousMove(Actor me)

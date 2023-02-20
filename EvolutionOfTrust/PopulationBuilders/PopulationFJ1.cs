@@ -4,30 +4,30 @@ using EvolutionOfTrust.Model;
 namespace EvolutionOfTrust.PopulationBuilders
 {
     /// <summary>
-    /// The population from NCase EvolutionOfTrust step 5.
-    /// 1 CopyCat
-    /// 1 AlwaysCheat
-    /// 23 AlwaysCooperate
+    /// Population 1 towards investigating Biased actors
+    /// 8 AlwaysCheat
+    /// 8 AlwaysCooperate
+    /// 8 CopyCat
     /// </summary>
-    public class NCasePopulation5 : PopulationBuilder
+    public class PopulationFJ1 : PopulationBuilder
     {
 
-        public NCasePopulation5() : base(25) { }
+        public PopulationFJ1() : base(24) { }
 
         protected override Actor CreateActor(int i)
         {
             Actor actor;
-            if (i == 0)
+            if (i < 8)
             {
                 actor = new AlwaysCheat();
             }
-            else if (i == 1)
+            else if (i < 16)
             {
-                actor = new CopyCat();
+                actor = new AlwaysCooperate();
             }
             else
             {
-                actor = new AlwaysCooperate();
+                actor = new CopyCat();
             }
             return actor;
         }

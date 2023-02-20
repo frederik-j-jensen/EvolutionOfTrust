@@ -6,17 +6,19 @@
         public string Name { get; set; }
         public Colours Colour { get; set; }
         public Actor() : this(nameof(Actor)) { }
-        public Actor(string name)
+        public Actor(string name) : this(name, Colours.Blue) { }
+        public Actor(string name, Colours colour)
         {
             Score = 0;
             Name = name;
-            Colour = Colours.Blue;
+            Colour = colour;
         }
         public virtual Move ChooseMove(History history)
         {
             return Move.Cooperate;
         }
-        public Actor Clone() {
+        public Actor Clone()
+        {
             var actor = DoClone();
 
             actor.Colour = Colour;
@@ -31,6 +33,21 @@
         public override string ToString()
         {
             return $"{Name} {Colour} ({Score})";
+        }
+
+        public override bool Equals(object? obj)
+        {
+            var other = obj as Actor;
+            if (other == null) { return false; }
+            else
+            {
+                return other.Colour == Colour && other.Name.Equals(Name);
+            }
+        }
+
+        public override int GetHashCode()
+        {
+            return Name.GetHashCode();
         }
     }
 }

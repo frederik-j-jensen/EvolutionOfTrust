@@ -6,15 +6,13 @@ namespace EvolutionOfTrust.PopulationBuilders
     public class MultiEthnic : PopulationBuilder
     {
 
-        private int Count = 0;
-
         public MultiEthnic(int totalPopulation) : base(totalPopulation) { }
 
-        protected override Actor CreateActor()
+        protected override Actor CreateActor(int i)
         {
             Actor actor;
 
-            switch (Count % 4)
+            switch (i % 4)
             {
                 case 0: { actor = new Biased(Colours.Blue); break; }
                 case 1: { actor = new Biased(Colours.Red); break; }
@@ -24,7 +22,6 @@ namespace EvolutionOfTrust.PopulationBuilders
                         actor = new AlwaysCooperate(); break;
                     }
             }
-            Count++;
             return actor;
         }
     }

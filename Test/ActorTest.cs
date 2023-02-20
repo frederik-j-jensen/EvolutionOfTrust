@@ -73,11 +73,47 @@ namespace Test
         }
 
         [TestMethod]
-        public void Biased()
+        public void BiasedAgainstBlue()
         {
             var other = new AlwaysCooperate();
             var me = new Biased();
             Assert.AreEqual(Colours.Red, me.Colour);
+            Assert.AreNotEqual(me.Colour, other.Colour);
+            {
+                var h = EmptyHistory(me, other);
+                var m = me.ChooseMove(h);
+                Assert.AreEqual(Move.Cheat, m);
+            }
+            {
+                var h = HistoryOfCheating(me, other);
+                var m = me.ChooseMove(h);
+                Assert.AreEqual(Move.Cheat, m);
+            }
+            {
+                var h = HistoryOfCooperation(me, other);
+                var m = me.ChooseMove(h);
+                Assert.AreEqual(Move.Cheat, m);
+            }
+            {
+                var h = MixedHistory1(me, other);
+                var m = me.ChooseMove(h);
+                Assert.AreEqual(Move.Cheat, m);
+            }
+            {
+                var h = MixedHistory2(me, other);
+                var m = me.ChooseMove(h);
+                Assert.AreEqual(Move.Cheat, m);
+            }
+        }
+
+        [TestMethod]
+        public void BiasedAgainstRed()
+        {
+            var other = new AlwaysCooperate();
+            other.Colour = Colours.Red;
+            var me = new Biased();
+            Assert.AreEqual(Colours.Red, me.Colour);
+            Assert.AreEqual(me.Colour, other.Colour);
             {
                 var h = EmptyHistory(me, other);
                 var m = me.ChooseMove(h);

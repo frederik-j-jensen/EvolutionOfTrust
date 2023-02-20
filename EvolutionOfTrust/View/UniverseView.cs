@@ -1,4 +1,5 @@
 ﻿using EvolutionOfTrust.Model;
+using System.Collections.Immutable;
 using System.Text;
 
 namespace EvolutionOfTrust.View
@@ -17,9 +18,9 @@ namespace EvolutionOfTrust.View
             var s = new StringBuilder();
             s.AppendLine($"Population: {Universe.Population.Count}");
 
-            foreach (var pair in Distribution())
+            foreach (var pair in Distribution().ToImmutableSortedDictionary())
             {
-                s.AppendLine($"{pair.Key}: {pair.Value}");
+                s.AppendLine($"{pair.Key.PadRight(24)}: {pair.Value.ToString().PadLeft(4)}");
             }
 
             return s.ToString();
@@ -58,13 +59,14 @@ namespace EvolutionOfTrust.View
 
             foreach (var actor in Universe.Population)
             {
-                if (result.ContainsKey(actor.Name))
+                var key = $"{actor.Name} {actor.Colour}";
+                if (result.ContainsKey(key))
                 {
-                    result[actor.Name]++;
+                    result[key]++;
                 }
                 else
                 {
-                    result.Add(actor.Name, 1);
+                    result.Add(key, 1);
                 }
             }
             return result;

@@ -1,14 +1,13 @@
 ﻿BACKLOG:
 
 
+Investigate how introduction of a Biased actor change the dynamics:
+-------------------------------------------------------------------
 
-3: Investigate how introduction of a Biased actor change the dynamics:
-----------------------------------------------------------------------
+1:
+Single biased group
 
-SCENARIO 1:
-Same as the scenario where CopyKitten is best but with one Biased group present
-
-SCENARIO 2:
+2:
 Multiple biased groups
 
 SCENARIO 3:

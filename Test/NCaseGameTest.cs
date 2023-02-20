@@ -1,12 +1,13 @@
 ﻿using EvolutionOfTrust;
 using EvolutionOfTrust.Actors;
 using EvolutionOfTrust.Model;
+using System.Runtime.CompilerServices;
 using System.Threading.Channels;
 
 namespace Test
 {
     [TestClass]
-    public class GameTest
+    public class NCaseGameTest
     {
 
         [TestMethod]
@@ -150,6 +151,7 @@ namespace Test
             var evolutionModel = EvolutionModel.NCase();
             var parameters = new Parameters();
             parameters.ProbabilityOfMistakePercent = 5.0;
+            parameters.NumberOfTurns = 50;
             var random = new Random(seed);
 
             var expectedWinners = new Actor[] {
@@ -198,7 +200,7 @@ namespace Test
             foreach (var actual in actualWinners)
             {
                 var expected = expectedWinners[i];
-                Assert.AreEqual(expected.GetType(), actual.GetType());
+                Assert.AreEqual(expected, actual);
                 i++;
             }
             Assert.AreEqual(expectedWinners.Count, i);

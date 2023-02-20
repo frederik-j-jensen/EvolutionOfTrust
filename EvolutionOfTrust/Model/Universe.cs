@@ -11,7 +11,7 @@ namespace EvolutionOfTrust.Model
 
         private Actors _Population = new Actors();
 
-        public ActorsView Population { get { return new ActorsView(_Population); } }
+        public ActorsView Population { get { return new ActorsView(_Population, Random); } }
 
         public Universe(PopulationBuilder populationBuilder, EvolutionModel evolutionModel, Parameters parameters, Random random)
         {

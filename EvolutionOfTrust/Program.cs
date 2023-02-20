@@ -1,30 +1,84 @@
 ﻿using EvolutionOfTrust;
 using EvolutionOfTrust.Model;
+using EvolutionOfTrust.PopulationBuilders;
+using System.Text;
 
-Console.WriteLine("***************************************************************");
-Console.WriteLine("*          Welcome to Frederik's Evolution of Trust!          *");
-Console.WriteLine("* Based on \"The Evolution of Trust\" (https://ncase.me/trust/) *");
-Console.WriteLine("***************************************************************");
+var output = new StringBuilder();
 
-var parameters = new Parameters();
-parameters.ProbabilityOfMistakePercent = 5.0;
-parameters.Seed = DateTimeOffset.Now.Millisecond;
-var game = new Game(PopulationBuilder.NCasePopulation6(), EvolutionModel.NCase(), parameters, new Random(parameters.Seed));
-Console.WriteLine(game.ViewParameters());
-Console.WriteLine(game.ViewSummary());
+output.AppendLine("***************************************************************");
+output.AppendLine("*          Welcome to Frederik's Evolution of Trust!          *");
+output.AppendLine("* Based on \"The Evolution of Trust\" (https://ncase.me/trust/) *");
+output.AppendLine("***************************************************************");
 
-game.PlayTurn();
-Console.WriteLine(game.ViewDetails());
-game.ResolveTurn();
-Console.WriteLine(game.ViewSummary());
 
-game.PlayTurn();
-game.ResolveTurn();
-Console.WriteLine(game.ViewSummary());
+output.AppendLine("---------------------------------------------------------------");
+output.AppendLine(" SCENARIO 1:");
+output.AppendLine("---------------------------------------------------------------");
+{
+    var parameters = new Parameters();
+    parameters.ProbabilityOfMistakePercent = 0.0;
+    parameters.Seed = DateTimeOffset.Now.Millisecond;
+    var game = new Game(new PopulationFJ1(), EvolutionModel.NCase(), parameters, new Random(parameters.Seed));
 
-game.PlayTurn();
-game.ResolveTurn();
-Console.WriteLine(game.ViewSummary());
+    game.Play(output);
+}
 
-game.RunToEnd();
-Console.WriteLine(game.ViewSummary());
+output.AppendLine("---------------------------------------------------------------");
+output.AppendLine(" SCENARIO 2:");
+output.AppendLine("---------------------------------------------------------------");
+{
+    var parameters = new Parameters();
+    parameters.ProbabilityOfMistakePercent = 0.0;
+    parameters.NumberOfRounds = 5;
+    parameters.Seed = DateTimeOffset.Now.Millisecond;
+    var game = new Game(new PopulationFJ2(), EvolutionModel.NCase(), parameters, new Random(parameters.Seed));
+
+    game.Play(output);
+}
+
+
+output.AppendLine("---------------------------------------------------------------");
+output.AppendLine(" SCENARIO 3:");
+output.AppendLine("---------------------------------------------------------------");
+{
+    var parameters = new Parameters();
+    parameters.ProbabilityOfMistakePercent = 0.0;
+    parameters.NumberOfRounds = 5;
+    parameters.Seed = DateTimeOffset.Now.Millisecond;
+    var game = new Game(new PopulationFJ3(), EvolutionModel.NCase(), parameters, new Random(parameters.Seed));
+
+    game.Play(output);
+}
+
+
+output.AppendLine("---------------------------------------------------------------");
+output.AppendLine(" SCENARIO 4:");
+output.AppendLine("---------------------------------------------------------------");
+{
+    var parameters = new Parameters();
+    parameters.ProbabilityOfMistakePercent = 0.0;
+    parameters.NumberOfRounds = 5;
+    parameters.Seed = DateTimeOffset.Now.Millisecond;
+    var game = new Game(new PopulationFJ4(), EvolutionModel.NCase(), parameters, new Random(parameters.Seed));
+
+    game.Play(output);
+}
+
+output.AppendLine("---------------------------------------------------------------");
+output.AppendLine(" SCENARIO 5:");
+output.AppendLine("---------------------------------------------------------------");
+{
+    var parameters = new Parameters();
+    parameters.ProbabilityOfMistakePercent = 0.0;
+    parameters.NumberOfRounds = 5;
+    parameters.Seed = DateTimeOffset.Now.Millisecond;
+    var game = new Game(new PopulationFJ5(), EvolutionModel.NCase(), parameters, new Random(parameters.Seed));
+
+    game.Play(output);
+}
+
+var directory = Directory.GetCurrentDirectory();
+var filename = "evolutionoftrust.txt";
+Console.WriteLine($"EVOLUTION OF TRUST 2.0: Output written to {directory}\\{filename}");
+
+File.WriteAllText(filename, output.ToString());

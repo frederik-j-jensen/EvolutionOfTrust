@@ -13,7 +13,7 @@ namespace EvolutionOfTrust.PopulationBuilders
             Random = random;
         }
 
-        protected override Actor CreateActor()
+        protected override Actor CreateActor(int i)
         {
             switch (Random.Next(10))
             {

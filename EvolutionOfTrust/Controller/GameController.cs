@@ -15,16 +15,17 @@ namespace EvolutionOfTrust.Controller
             Parameters = parameters;
         }
 
-        public void Run()
+        public void RunToEnd()
         {
-            while (GameState.Turn < Parameters.NumberOfTurns) Step();
+            while (Step())
             PlayTournament();
         }
 
-        public void Step()
+        public bool Step()
         {
             PlayTournament();
             ResolveTournament();
+            return GameState.Turn < Parameters.NumberOfTurns;
         }
 
         public void PlayTournament()

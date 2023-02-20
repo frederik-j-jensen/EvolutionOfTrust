@@ -4,7 +4,8 @@ namespace EvolutionOfTrust.Actors
 {
     public class CopyCat : Actor
     {
-        public CopyCat() : base(nameof(CopyCat)) { }
+        public CopyCat() : this(Colours.Blue) { }
+        public CopyCat(Colours colour) : base(nameof(CopyCat), colour) { }
 
         public override Move ChooseMove(History history)
         {
