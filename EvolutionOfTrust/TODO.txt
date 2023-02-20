@@ -1,17 +1,5 @@
 ﻿BACKLOG:
 
-
-Investigate how introduction of a Biased actor change the dynamics:
--------------------------------------------------------------------
-
-1:
-Single biased group
-
-2:
-Multiple biased groups
-
-SCENARIO 3:
-AlwaysCheats within Biased.
-
-
 * Pass parameters from the commandline
+
+* Random is not threadsafe and unit tests can fail because of this
