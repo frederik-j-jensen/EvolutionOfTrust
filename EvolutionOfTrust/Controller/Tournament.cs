@@ -1,4 +1,6 @@
-﻿namespace EvolutionOfTrust.Model
+﻿using EvolutionOfTrust.Model;
+
+namespace EvolutionOfTrust.Controller
 {
     public class Tournament
     {

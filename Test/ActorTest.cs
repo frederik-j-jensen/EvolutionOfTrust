@@ -12,6 +12,7 @@ namespace Test
             var other = new AlwaysCooperate();
             var me = new AlwaysCheat();
             Assert.AreEqual(Colours.Blue, me.Colour);
+            Assert.AreEqual(Rankings.None, me.Ranking);
             {
                 var h = EmptyHistory(me, other);
                 var m = me.ChooseMove(h);
@@ -45,6 +46,7 @@ namespace Test
             var other = new AlwaysCooperate();
             var me = new AlwaysCooperate();
             Assert.AreEqual(Colours.Blue, me.Colour);
+            Assert.AreEqual(Rankings.None, me.Ranking);
             {
                 var h = EmptyHistory(me, other);
                 var m = me.ChooseMove(h);
@@ -79,6 +81,7 @@ namespace Test
             var me = new Biased();
             Assert.AreEqual(Colours.Red, me.Colour);
             Assert.AreNotEqual(me.Colour, other.Colour);
+            Assert.AreEqual(Rankings.None, me.Ranking);
             {
                 var h = EmptyHistory(me, other);
                 var m = me.ChooseMove(h);
@@ -114,6 +117,7 @@ namespace Test
             var me = new Biased();
             Assert.AreEqual(Colours.Red, me.Colour);
             Assert.AreEqual(me.Colour, other.Colour);
+            Assert.AreEqual(Rankings.None, me.Ranking);
             {
                 var h = EmptyHistory(me, other);
                 var m = me.ChooseMove(h);
@@ -147,6 +151,7 @@ namespace Test
             var other = new AlwaysCooperate();
             var me = new CopyCat();
             Assert.AreEqual(Colours.Blue, me.Colour);
+            Assert.AreEqual(Rankings.None, me.Ranking);
             {
                 var h = EmptyHistory(me, other);
                 var m = me.ChooseMove(h);
@@ -180,6 +185,7 @@ namespace Test
             var other = new AlwaysCooperate();
             var me = new CopyKitten();
             Assert.AreEqual(Colours.Blue, me.Colour);
+            Assert.AreEqual(Rankings.None, me.Ranking);
             {
                 var h = EmptyHistory(me, other);
                 var m = me.ChooseMove(h);
@@ -255,6 +261,7 @@ namespace Test
             var other = new AlwaysCooperate();
             var me = new Detective();
             Assert.AreEqual(Colours.Blue, me.Colour);
+            Assert.AreEqual(Rankings.None, me.Ranking);
             {
                 var h = EmptyHistory(me, other);
                 var m = me.ChooseMove(h);
@@ -288,6 +295,7 @@ namespace Test
             var other = new AlwaysCooperate();
             var me = new Grudger();
             Assert.AreEqual(Colours.Blue, me.Colour);
+            Assert.AreEqual(Rankings.None, me.Ranking);
             {
                 var h = EmptyHistory(me, other);
                 var m = me.ChooseMove(h);
@@ -324,6 +332,7 @@ namespace Test
 
             var me = new Monkey(random);
             Assert.AreEqual(Colours.Blue, me.Colour);
+            Assert.AreEqual(Rankings.None, me.Ranking);
             {
                 var h = EmptyHistory(me, other);
                 var m = me.ChooseMove(h);
@@ -357,6 +366,7 @@ namespace Test
             var other = new AlwaysCooperate();
             var me = new Simpleton();
             Assert.AreEqual(Colours.Blue, me.Colour);
+            Assert.AreEqual(Rankings.None, me.Ranking);
             {
                 var h = EmptyHistory(me, other);
                 var m = me.ChooseMove(h);

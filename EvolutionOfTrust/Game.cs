@@ -12,10 +12,9 @@ namespace EvolutionOfTrust
 
         public Game(PopulationBuilder populationBuilder, EvolutionModel evolutionModel, Parameters parameters, Random random)
         {
-            var universe = new Universe(populationBuilder, evolutionModel, parameters, random);
-            var state = new State();
-            Controller = new GameController(universe, state, parameters);
-            View = new GameView(universe, state, parameters);
+            var universe = new Universe(populationBuilder);
+            Controller = new GameController(universe, evolutionModel, parameters, random);
+            View = new GameView(universe, parameters);
         }
 
         public Game(PopulationBuilder populationBuilder, EvolutionModel evolutionModel) : this(populationBuilder, evolutionModel, new Parameters(), new Random()) { }
@@ -32,7 +31,7 @@ namespace EvolutionOfTrust
 
         public void RunToEnd()
         {
-            Controller.RunToEnd();
+            Controller.PlayToEnd();
         }
 
         public string ViewSummary()
@@ -65,7 +64,7 @@ namespace EvolutionOfTrust
             ResolveTurn();
             output.AppendLine(ViewSummary());
 
-            while (Controller.Step())
+            while (Controller.PlayTurn())
             {
                 output.AppendLine(ViewSummary());
             }

@@ -1,6 +1,4 @@
-﻿using EvolutionOfTrust.Actors;
-using EvolutionOfTrust.Model;
-using System.Linq;
+﻿using EvolutionOfTrust.Model;
 
 namespace Test
 {
@@ -10,101 +8,46 @@ namespace Test
         [TestMethod]
         public void NCasePopulation4()
         {
-            int seed = 123123123;
-
             var populationBuilder = PopulationBuilder.NCasePopulation4();
-            var evolutionModel = EvolutionModel.NCase();
-            var parameters = new Parameters();
-            var random = new Random(seed);
-
-            CreateAndTestUniverse(populationBuilder, evolutionModel, parameters, random);
+            CreateAndTestUniverse(populationBuilder);
         }
 
         [TestMethod]
         public void NCasePopulation5()
         {
-            int seed = 123123123;
-
             var populationBuilder = PopulationBuilder.NCasePopulation5();
-            var evolutionModel = EvolutionModel.NCase();
-            var parameters = new Parameters();
-            var random = new Random(seed);
-
-            CreateAndTestUniverse(populationBuilder, evolutionModel, parameters, random);
+            CreateAndTestUniverse(populationBuilder);
         }
 
         [TestMethod]
         public void NCasePopulation6()
         {
-            int seed = 123123123;
-
             var populationBuilder = PopulationBuilder.NCasePopulation6();
-            var evolutionModel = EvolutionModel.NCase();
-            var parameters = new Parameters();
-            var random = new Random(seed);
-
-            CreateAndTestUniverse(populationBuilder, evolutionModel, parameters, random);
+            CreateAndTestUniverse(populationBuilder);
         }
 
-        private void CreateAndTestUniverse(PopulationBuilder populationBuilder, EvolutionModel evolutionModel, Parameters parameters, Random random)
+        private void CreateAndTestUniverse(PopulationBuilder populationBuilder)
         {
-            CreateAndTestUniverseScores(populationBuilder, evolutionModel, parameters, random);
-            CreateAndTestUniverseWinners(populationBuilder, evolutionModel, parameters, random);
-            CreateAndTestUniverseLoosers(populationBuilder, evolutionModel, parameters, random);
-        }
+            var universe = new Universe(populationBuilder);
 
-        private void CreateAndTestUniverseScores(PopulationBuilder populationBuilder, EvolutionModel evolutionModel, Parameters parameters, Random random)
-        {
-            var universe = new Universe(populationBuilder, evolutionModel, parameters, random);
-
-            Assert.AreEqual(populationBuilder.TotalPopulation, universe.Population.Count);
+            Assert.AreEqual(populationBuilder.TotalPopulation, universe.PopulationCount);
+            Assert.AreEqual(0, universe.Turn);
             foreach (var actor in universe.Population)
             {
                 Assert.AreEqual(0, actor.Score);
+                Assert.AreEqual(Rankings.None, actor.Ranking);
             }
 
-            universe.PlayTournament();
+            universe.Turn++;
+            Assert.AreEqual(1, universe.Turn);
 
-            Assert.AreEqual(populationBuilder.TotalPopulation, universe.Population.Count);
-            foreach (var actor in universe.Population)
-            {
-                Assert.AreNotEqual(0, actor.Score);
-            }
-
-            universe.ResetScores();
-
-            Assert.AreEqual(populationBuilder.TotalPopulation, universe.Population.Count);
-            foreach (var actor in universe.Population)
-            {
-                Assert.AreEqual(0, actor.Score);
-            }
-
-        }
-
-        private void CreateAndTestUniverseWinners(PopulationBuilder populationBuilder, EvolutionModel evolutionModel, Parameters parameters, Random random)
-        {
-            var universe = new Universe(populationBuilder, evolutionModel, parameters, random);
-            universe.PlayTournament();
-
-            int numberOfWinners = universe.Winners().Count();
-
-            universe.ReproduceWinners();
-
-            Assert.AreEqual(populationBuilder.TotalPopulation + numberOfWinners, universe.Population.Count);
-        }
-
-        private void CreateAndTestUniverseLoosers(PopulationBuilder populationBuilder, EvolutionModel evolutionModel, Parameters parameters, Random random)
-        {
-            var universe = new Universe(populationBuilder, evolutionModel, parameters, random);
-            universe.PlayTournament();
-
-            int numberOfLoosers = universe.Loosers().Count();
+            Assert.AreEqual(0, universe.Winners().Count());
+            Assert.AreEqual(0, universe.Loosers().Count());
 
             universe.EliminateLoosers();
-
-            Assert.AreEqual(populationBuilder.TotalPopulation - numberOfLoosers, universe.Population.Count);
-
+            Assert.AreEqual(populationBuilder.TotalPopulation, universe.PopulationCount);
+            universe.ReproduceWinners();
+            Assert.AreEqual(populationBuilder.TotalPopulation, universe.PopulationCount);
         }
-
     }
 }

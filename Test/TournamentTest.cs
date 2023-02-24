@@ -1,4 +1,4 @@
-﻿using EvolutionOfTrust.Actors;
+﻿using EvolutionOfTrust.Controller;
 using EvolutionOfTrust.Model;
 
 namespace Test

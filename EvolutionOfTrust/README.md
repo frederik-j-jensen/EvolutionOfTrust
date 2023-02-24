@@ -1,10 +1,10 @@
 # EVOLUTION OF TRUST
-By Frederik J. Jensen, 2022
+By Frederik J. Jensen, 2023
 
 Based on "The Evolution of Trust" (https://ncase.me/trust/)
 
 
-# BACKGROUND
+# Purpose
 
 When I came accross "The Evolution of Trust" years ago I was quite taken with both the model and how it is presented. 
 You know, "I wish I had done that" kind of thing and I returned to the website every once in a while over the years.
@@ -19,11 +19,30 @@ as a fun challenge to recreate the model from "The Evolution of Trust" and then 
 
 //Can I reproduce that having a biased group is a feasible strategy in some scenarios?//
 
-What is implemented right now is a model that has been extended with every Actor having a colour attribute and there is a new Biased Actor 
-that always trust someone with the same colour and always cheat someone with a different colour. Also, there are variations 
-on how to create the initial distribution of actors in the universe (PopulationBuilders) and variations on how to decide which 
-actors to eliminate and which to duplicate (EvolutionModels).
 
-The user interface is pure text based but is implemented with a Model-View-Controller pattern so a more rich user interface 
-can be added later without messing up the model.
+# Reproduction of the result from NCase
 
+First I implemented the original model from NCase, with unit tests to verify that my implementation can reproduce the results.
+
+The solution uses a model-view-controller pattern to separate the logic controls the simulation into three components.
+The class Game consists of a model (Universe), a view (GameView), and a controller (GameController). 
+GameView creates textual descriptions of a game. GameController defines the actions that modify the state of the game.
+
+PopulationBuilders and Parameters control the initial population and the rules of the game. Actors implements the actors, 
+each with their own strategy for playing selecting moves.
+
+
+# Exploration of scenarios with biased actors
+
+Next I implemented every Actor having a colour attribute and a new Biased Actor that always trust someone with the same 
+colour and always cheat someone with a different colour. Also, five new populations (PopulationBuilders) explore how 
+a Biased Actor compete in different scenarios.
+
+The program runs a number of scenarios and writes the output into a text file.
+
+
+# Further work
+
+EvolutionModels develops the idea that a population can grow and decline. In a world of plenty, the population grows, 
+in a world where resources are scarce, the population decline until possibly an equilibrium is found. 
+This idea is not explored fully.

@@ -1,4 +1,5 @@
-﻿using EvolutionOfTrust.Model;
+﻿using EvolutionOfTrust.Controller;
+using EvolutionOfTrust.Model;
 
 namespace EvolutionOfTrust.EvolutionModels
 {
@@ -12,16 +13,14 @@ namespace EvolutionOfTrust.EvolutionModels
 
         public NCase() { }
 
-        public override IEnumerable<Actor> Winners(Universe universe)
+        public override IEnumerable<Actor> Winners(RankedActors population)
         {
-            // TODO: Clone the 5 best players. (if there's a tie, pick randomly between them)
-            return universe.Population.Top(ExpandCount);
+            return population.Top(ExpandCount);
         }
 
-        public override IEnumerable<Actor> Loosers(Universe universe)
+        public override IEnumerable<Actor> Loosers(RankedActors population)
         {
-            // TODO: Get rid of the 5 worst players. (if there's a tie, pick randomly between them)
-            return universe.Population.Bottom(EliminateCount);
+            return population.Bottom(EliminateCount);
         }
     }
 }

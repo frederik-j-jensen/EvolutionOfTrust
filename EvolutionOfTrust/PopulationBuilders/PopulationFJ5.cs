@@ -30,7 +30,6 @@ namespace EvolutionOfTrust.PopulationBuilders
 
         protected override Actor CreateActor(int i)
         {
-            Actor actor;
             if (i < 12)
             {
                 return CreateActor(i, Colours.Blue);

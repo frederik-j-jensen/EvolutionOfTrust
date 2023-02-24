@@ -7,6 +7,8 @@ namespace EvolutionOfTrust.View
     public class UniverseView
     {
         private Universe Universe;
+        public int Turn { get { return Universe.Turn; } }
+        public int Population { get { return Universe.PopulationCount; } }
 
         public UniverseView(Universe universe)
         {
@@ -16,7 +18,7 @@ namespace EvolutionOfTrust.View
         public string Summary()
         {
             var s = new StringBuilder();
-            s.AppendLine($"Population: {Universe.Population.Count}");
+            s.AppendLine($"Population: {Population}");
 
             foreach (var pair in Distribution().ToImmutableSortedDictionary())
             {
@@ -29,7 +31,7 @@ namespace EvolutionOfTrust.View
         public string Details()
         {
             var s = new StringBuilder();
-            s.AppendLine($"Population: {Universe.Population.Count}");
+            s.AppendLine($"Population: {Population}");
 
             foreach (var actor in Universe.Population)
             {

@@ -3,6 +3,7 @@
     public abstract class Actor
     {
         public int Score { get; set; }
+        public Rankings Ranking { get; set; }
         public string Name { get; set; }
         public Colours Colour { get; set; }
         public Actor() : this(nameof(Actor)) { }
@@ -12,6 +13,7 @@
             Score = 0;
             Name = name;
             Colour = colour;
+            Ranking = Rankings.None;
         }
         public virtual Move ChooseMove(History history)
         {
@@ -24,6 +26,7 @@
             actor.Colour = Colour;
             actor.Score = Score;
             actor.Name = Name;
+            actor.Ranking = Ranking;
 
             return actor;
         }

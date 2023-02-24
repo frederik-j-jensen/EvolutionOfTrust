@@ -24,8 +24,6 @@ namespace EvolutionOfTrust.Model
         public static PopulationBuilder NCasePopulation4() { return new NCasePopulation4(); }
         public static PopulationBuilder NCasePopulation5() { return new NCasePopulation5(); }
         public static PopulationBuilder NCasePopulation6() { return new NCasePopulation6(); }
-        public static PopulationBuilder RandomPopulation() { return new RandomPopulation(25); }
-        public static PopulationBuilder MultiEthnic() { return new MultiEthnic(25); }
 
     }
 }

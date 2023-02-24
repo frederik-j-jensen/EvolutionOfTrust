@@ -6,12 +6,10 @@ namespace EvolutionOfTrust.View
     public class GameView
     {
         private UniverseView UniverseView;
-        private State GameState;
         private Parameters Parameters;
 
-        public GameView(Universe universe, State gameState, Parameters parameters)
+        public GameView(Universe universe, Parameters parameters)
         {
-            GameState = gameState;
             UniverseView = new UniverseView(universe);
             Parameters = parameters;
         }
@@ -20,7 +18,7 @@ namespace EvolutionOfTrust.View
         {
             var s = new StringBuilder();
 
-            s.AppendLine($"Turn: {1 + GameState.Turn}");
+            s.AppendLine($"Turn: {1 + UniverseView.Turn}");
             s.AppendLine(UniverseView.Summary());
 
             return s.ToString();
@@ -30,7 +28,7 @@ namespace EvolutionOfTrust.View
         {
             var s = new StringBuilder();
 
-            s.AppendLine($"Turn: {1 + GameState.Turn}");
+            s.AppendLine($"Turn: {1 + UniverseView.Turn}");
             s.AppendLine(UniverseView.Details());
 
             return s.ToString();

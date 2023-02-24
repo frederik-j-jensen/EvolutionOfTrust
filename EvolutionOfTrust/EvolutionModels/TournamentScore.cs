@@ -1,21 +1,22 @@
-﻿using EvolutionOfTrust.Model;
+﻿using EvolutionOfTrust.Controller;
+using EvolutionOfTrust.Model;
 
 namespace EvolutionOfTrust.EvolutionModels
 {
     /// <summary>
-    /// An evolution model where the actors total score in each tournament decides whether they get elimiated or get to reproduce.
+    /// An evolution model where the actors total score in each tournament decides whether they get eliminated or get to reproduce.
     /// </summary>
     public class TournamentScore : EvolutionModel
     {
-        public override IEnumerable<Actor> Loosers(Universe universe)
+        public override IEnumerable<Actor> Loosers(RankedActors population)
         {
-            return universe.Population.Where(actor => actor.Score <= 0);
+            return population.Where(actor => actor.Score <= 0);
         }
 
-        public override IEnumerable<Actor> Winners(Universe universe)
+        public override IEnumerable<Actor> Winners(RankedActors population)
         {
-            var threshold = universe.Population.Count;
-            return universe.Population.Where(actor => actor.Score > threshold);
+            var threshold = population.Count;
+            return population.Where(actor => actor.Score > threshold);
         }
     }
 }

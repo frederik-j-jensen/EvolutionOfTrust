@@ -1,4 +1,5 @@
-﻿using EvolutionOfTrust.Model;
+﻿using EvolutionOfTrust.Controller;
+using EvolutionOfTrust.Model;
 
 namespace EvolutionOfTrust.EvolutionModels
 {
@@ -11,17 +12,17 @@ namespace EvolutionOfTrust.EvolutionModels
         private const double GrowthFactor = 20;
         private const double DeclineFactor = 0.2;
 
-        public override IEnumerable<Actor> Winners(Universe universe)
+        public override IEnumerable<Actor> Winners(RankedActors population)
         {
             // TODO: What happens when population count > TargetPopulation?
-            var expandCount = (int)(GrowthFactor * (1 - universe.Population.Count * 1.0 / TargetPopulation));
-            return universe.Population.Top(expandCount);
+            var expandCount = (int)(GrowthFactor * (1 - population.Count * 1.0 / TargetPopulation));
+            return population.Top(expandCount);
         }
 
-        public override IEnumerable<Actor> Loosers(Universe universe)
+        public override IEnumerable<Actor> Loosers(RankedActors population)
         {
-            var eliminateCount = (int)(DeclineFactor * universe.Population.Count);
-            return universe.Population.Bottom(eliminateCount);
+            var eliminateCount = (int)(DeclineFactor * population.Count);
+            return population.Bottom(eliminateCount);
         }
     }
 }

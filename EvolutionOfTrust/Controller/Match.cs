@@ -1,6 +1,6 @@
-﻿using System.Runtime.CompilerServices;
+﻿using EvolutionOfTrust.Model;
 
-namespace EvolutionOfTrust.Model
+namespace EvolutionOfTrust.Controller
 {
     public class Match
     {
@@ -52,7 +52,7 @@ namespace EvolutionOfTrust.Model
 
         }
 
-        private Move Transmit(Move move) => (Random.NextDouble() * 100) < Parameters.ProbabilityOfMistakePercent
+        private Move Transmit(Move move) => Random.NextDouble() * 100 < Parameters.ProbabilityOfMistakePercent
                 ? move.Opposite() : move;
     }
 }

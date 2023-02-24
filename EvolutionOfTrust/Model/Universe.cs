@@ -1,60 +1,39 @@
-﻿using EvolutionOfTrust.EvolutionModels;
-using EvolutionOfTrust.PopulationBuilders;
+﻿using System.Collections.Immutable;
 
 namespace EvolutionOfTrust.Model
 {
     public class Universe
     {
-        private readonly EvolutionModel EvolutionModel;
-        private readonly Parameters Parameters;
-        private readonly Random Random;
+        private readonly List<Actor> _Population = new List<Actor>();
+        public IEnumerable<Actor> Population => _Population.ToImmutableList();
+        public int PopulationCount { get { return _Population.Count; } }
+        public int Turn { get; set; }
 
-        private Actors _Population = new Actors();
-
-        public ActorsView Population { get { return new ActorsView(_Population, Random); } }
-
-        public Universe(PopulationBuilder populationBuilder, EvolutionModel evolutionModel, Parameters parameters, Random random)
+        public Universe(PopulationBuilder populationBuilder)
         {
-            EvolutionModel = evolutionModel;
-
-            Parameters = parameters;
-            Random = random;
-
             _Population.AddRange(populationBuilder.Create());
-        }
-
-        public void PlayTournament()
-        {
-            var tournament = new Tournament(Parameters, Random);
-            tournament.Play(_Population);
-        }
-
-        public IEnumerable<Actor> Loosers()
-        {
-            return EvolutionModel.Loosers(this);
-        }
-
-        public void EliminateLoosers()
-        {
-            _Population.Remove(EvolutionModel.Loosers(this));
         }
 
         public IEnumerable<Actor> Winners()
         {
-            return EvolutionModel.Winners(this);
+            return _Population.Where(actor => actor.Ranking.Equals(Rankings.Winner)).ToArray();
+        }
+
+        public IEnumerable<Actor> Loosers()
+        {
+            return _Population.Where(actor => actor.Ranking.Equals(Rankings.Looser)).ToArray();
+        }
+
+        public void EliminateLoosers()
+        {
+            foreach (var looser in Loosers())
+                _Population.Remove(looser);
         }
 
         public void ReproduceWinners()
         {
-            _Population.AddRange(
-                EvolutionModel.Winners(this).Select(actor => actor.Clone()).ToArray()
-                );
-        }
-
-        public void ResetScores()
-        {
-            foreach (var actor in _Population)
-                actor.Score = 0;
+            foreach (var winner in Winners())
+                _Population.Add(winner.Clone());
         }
     }
 }

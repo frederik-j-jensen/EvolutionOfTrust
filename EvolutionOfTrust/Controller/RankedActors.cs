@@ -1,22 +1,18 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections;
+using EvolutionOfTrust.Model;
 
-namespace EvolutionOfTrust.Model
+namespace EvolutionOfTrust.Controller
 {
-    public class ActorsView : IEnumerable<Actor>
+    public class RankedActors : IEnumerable<Actor>
     {
         private readonly Random Random;
 
-        private readonly Actors _Actors;
+        private readonly List<Actor> _Actors;
         public int Count { get { return _Actors.Count; } }
 
-        public ActorsView(Actors actors, Random random)
+        public RankedActors(IEnumerable<Actor> actors, Random random)
         {
-            _Actors = actors;
+            _Actors = actors.ToList();
             Random = random;
         }
 
@@ -37,7 +33,7 @@ namespace EvolutionOfTrust.Model
             var threshold = list[x - 1].Score;
             var candidates = list.Where(a => a.Score <= threshold).ToList();
             Shuffle(candidates);
-            return candidates.Take(x);
+            return candidates.Take(x).ToArray();
         }
 
         public IEnumerable<Actor> Top(int x)
@@ -47,7 +43,7 @@ namespace EvolutionOfTrust.Model
             var threshold = list[x - 1].Score;
             var candidates = list.Where(a => a.Score >= threshold).ToList();
             Shuffle(candidates);
-            return list.Take(x);
+            return list.Take(x).ToArray();
         }
 
         public void Shuffle<T>(List<T> list)
