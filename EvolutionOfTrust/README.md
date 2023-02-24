@@ -6,7 +6,7 @@ Based on "The Evolution of Trust" (https://ncase.me/trust/)
 
 # Purpose
 
-When I came accross "The Evolution of Trust" years ago I was quite taken with both the model and how it is presented. 
+When I came across "The Evolution of Trust" years ago I was quite taken with both the model and how it is presented. 
 You know, "I wish I had done that" kind of thing and I returned to the website every once in a while over the years.
 
 Recently, I reflected upon the resilience of groups that are clearly biased to trust only members of its own group. 
@@ -22,7 +22,7 @@ as a fun challenge to recreate the model from "The Evolution of Trust" and then 
 
 # Reproduction of the result from NCase
 
-First I implemented the original model from NCase, with unit tests to verify that my implementation can reproduce the results.
+First, I implemented the original model from NCase, with unit tests to verify that my implementation can reproduce the results.
 
 The solution uses a model-view-controller pattern to separate the logic controls the simulation into three components.
 The class Game consists of a model (Universe), a view (GameView), and a controller (GameController). 
@@ -34,9 +34,9 @@ each with their own strategy for playing selecting moves.
 
 # Exploration of scenarios with biased actors
 
-Next I implemented every Actor having a colour attribute and a new Biased Actor that always trust someone with the same 
+Next, I implemented every Actor having a colour attribute and a new Biased Actor that always trust someone with the same 
 colour and always cheat someone with a different colour. Also, five new populations (PopulationBuilders) explore how 
-a Biased Actor compete in different scenarios.
+a Biased Actor competes in different scenarios.
 
 The program runs a number of scenarios and writes the output into a text file.
 
